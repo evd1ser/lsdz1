@@ -1,0 +1,67 @@
+.col-sm-4{
+  width: 30%;
+  float: left;
+}
+//responsive
+@function rem($px) {
+  @return $px / 16px + 0rem;
+}
+
+
+@mixin desktop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+
+@mixin tablets {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+
+@mixin phones {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@for $i from 1 through 12 {
+  .col-p-#{$i} {
+    width: 100 * $i / 12 +%;
+    float: left;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  @for $i from 1 through 12 {
+    .col-t-#{$i} {
+      width: 100 * $i / 12 +%;
+      float: left;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  @for $i from 1 through 12 {
+    .col-pc-#{$i} {
+      width: 100 * $i / 12 +%;
+      float: left;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  @for $i from 1 through 12 {
+    .col-hd-#{$i} {
+      width: 100 * $i / 12 + %;
+      float: left;
+    }
+  }
+}

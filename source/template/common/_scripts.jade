@@ -1,0 +1,31 @@
+script(type='text/javascript').
+  $(document).ready( function() {
+      var timer;	//timer for splash screen
+
+
+      //calling jPreLoader
+      $('html').jpreLoader({
+          splashID: "#jSplash",
+          loaderVPos: '50%',
+          autoClose: true,
+          closeBtnText: "Let's 111Begin!",
+          splashFunction: function() {  
+              //passing Splash Screen script to jPreLoader
+              $('#jSplash').children('section').not('.selected').hide();
+              $('#jSplash').hide().fadeIn(800);
+
+              timer = setInterval(function() {
+                  splashRotator();
+              }, 4000);
+          }
+      }, function() {	//callback function
+          clearInterval(timer);
+          $('#footer')
+          .animate({"bottom":0}, 500);
+          $('#header')
+          .animate({"top":0}, 800, function() {
+              $('#wrapper').fadeIn(1000);
+          });
+      });
+
+  });

@@ -1,0 +1,14 @@
+$maingamma: #4e8839;
+$maingamma2: #6c9c5a;
+$maingammadarck: #4e8839;
+body {
+  margin: 0;
+}
+@import url('../fonts/Roboto/Roboto.css');
+@import url('../fonts/SansusWebissimo/SansusWebissimo.css');
+
+@import 'common/media.scss';
+@import 'common/_iclass.scss';
+@import 'common/greating.scss';
+@import 'common/main.scss';
+@import 'common/leible.scss';
