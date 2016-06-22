@@ -3,51 +3,26 @@ doctype html
 html
   include common/_head
   body
-    .b-content-head.b-content-head_bgmain.b-content-head_nohome
-        <!--[if lt IE 7]>
-        <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
-        <![endif]-->
-
-        header.i-clear.b-header.b-header_text-right.i-abs-top
-            ul.b-icongrup.b-icongrup_maringtb.i-float_left
-                li.b-icongrup__item
-                    a.b-icongrup__icon.b-icongrup__icon_opaciy(href="http://vk.com/evd1ser" target="_blank")
-                        i.fa.fa-vk(aria-hidden="true")
-                            span.sr-only vkontakte
-                li.b-icongrup__item
-                    a.b-icongrup__icon.b-icongrup__icon_opaciy(href="https://github.com/evd1ser" target="_blank")
-                        i.fa.fa-github-alt(aria-hidden="true")
-                            span.sr-only github
-                li.b-icongrup__item
-                    a.b-icongrup__icon.b-icongrup__icon_opaciy(href="https://www.linkedin.com/in/evd1ser" target="_blank")
-                        i.fa.fa-linkedin(aria-hidden="true")
-                            span.sr-only linkedin
-            a#menubtn.b-header__menu-btn.js-menu(href="#menu")
-                i.fa.fa-bars(aria-hidden="true")
-                    span.sr-only Меню
 
 
-        .b-main.b-main_V
-            .center_flex
-                .b-portfolio.b-portfolio_tema_forest.b-portfolio_no-bg.b-portfolio_after
-                    .b-imgcover
-                        img.b-imgcover__avatar(src="/assets/img/avatar.png")
-                    h1.b-portfolio__name Евдокимов Сергей
-                    span.b-portfolio__litteltext Личный сайт веб разработчика
-    -var classesnav= 'b-nav b-nav_main b-nav_close', idnav= 'menu'
-    include common/menu
+    include _pageheader
     .b-content-head
-        main.b-main.b-main-content.b-main_noflex
+        main.b-main.b-main_nopad.b-main-content.b-main_noflex
 
-            section.i-clear.i-text-center
+            section.i-clear.i-text-center.i-relat
+                svg.i-topskat(viewBox="0 0 100 100" preserveAspectRatio="none")
+                    g
+                        polygon.i-topskat__item.i-topskat__item_right(points="50,100 100,0 100,100")
+                    g
+                        polygon.i-topskat__item.i-topskat__item_left(points="0,0 0,100 50,100")
                 h2.b-title-h2.b-title-h2_works.i-upper.i-under.i-under_invers Мои Работы
                 .i-h100
-                    .b-slider.b-slider__main.col-pc-6.i-col_flr_moby
+                    .b-slider.b-slider__main.col-p-12.col-hd-6.i-col_flr_moby
                         .b-slider__item
                             img.b-slider__img(src="/assets/img/file/site-1.png")
-                    .b-my-work.col-pc-6.i-clear
+                    .b-my-work.col-p-12.col-hd-6.i-clear
                         .b-my-work__item.center_flex
-                            h2.b-my-work__title.i-upper.i-under.i-under_darck Новостной сайт по аналогии
+                            h2.b-my-work__title.i-upper.i-under.i-under_invers Новостной сайт по аналогии
                             .b-my-work__tag
                                 ul.b-tag-list
                                     li.b-tag-list__item
@@ -57,7 +32,7 @@ html
                                     li.b-tag-list__item
                                         a(href="#").b-tag-list__link JavaScript
                             a(href="#").b-my-work__link Посмотреть сайт
-                    .b-slider.b-slider_nav.col-pc-6
+                    .b-slider.b-slider_nav.col-p-12.col-hd-6
                         a.b-slider__item.b-slider__item_small.b-slider__next.col-p-6(href="#")
                             img.b-slider__img(src="/assets/img/file/site-1.png")
                         a.b-slider__item.b-slider__item_small.b-slider__prev.col-p-6(href="#")
@@ -67,24 +42,25 @@ html
                     span.i-block Что обо мне
                     span говорят
                 .container.i-clear
-                    .b-about-me.col-t-6.col-p-12
-                        .b-imgcover.b-imgcover_small
-                            img.b-imgcover__avatar(src="/assets/img/avatar.png")
-                        .b-about-me__comment
-                            | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                        .b-about-me__name Ковальчук Дмитрий
-                        .b-about-me__who — основатель Loftschool
-                    .b-about-me.col-t-6.col-p-12
-                        .b-imgcover.b-imgcover_small
-                            img.b-imgcover__avatar(src="/assets/img/avatar.png")
-                        .b-about-me__comment
-                            | Этот код выдержет любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
-                        .b-about-me__name Зар Захаров
-                        .b-about-me__who — главный преподаватель
+                    .i-clear.b-about-me-block
+                        .b-about-me.col-t-6.col-p-12
+                            .b-imgcover.b-imgcover_small
+                                img.b-imgcover__avatar(src="/assets/img/Layer-8.png")
+                            .b-about-me__comment
+                                | Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                            .b-about-me__name Ковальчук Дмитрий
+                            .b-about-me__who — основатель Loftschool
+                        .b-about-me.col-t-6.col-p-12
+                            .b-imgcover.b-imgcover_small
+                                img.b-imgcover__avatar(src="/assets/img/layer-9.png")
+                            .b-about-me__comment
+                                | Этот код выдержет любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                            .b-about-me__name Зар Захаров
+                            .b-about-me__who — главный преподаватель
 
                     .center_flex
                         .b-portfolio.b-portfolio_tema_about
-                            .b-portfolio__name.i-upper.i-under.i-under_darck Связаться со мной
+                            h2.b-title-h3.b-title-h3_col_darcm3.b-portfolio__name.i-upper.i-under.i-under_col_darcm3 Связаться со мной
                             form#loginform.b-form-a.b-form-about
                                 .b-formgrup
                                     input.b-form-a__input(type="text" placeholder="Имя")
@@ -100,31 +76,5 @@ html
                     a.b-top__link(href="#")
                         i.fa.fa-chevron-up(aria-hidden="true")
 
-                footer.b-footer.b-footer_nohome
-                    .b-footer__big.i-clear
-                            .col-pc-4.col-t-6.col-p-12.b-footer__text
-                                | Этот сайт я сделал в рамках обучения
-                                | в Школе онлайн образования LoftSchool.
-                            .col-pc-4.col-t-6.col-p-12.b-footer_nohome__centerb
-                                -var classesnav= 'b-nav b-nav_footer', idnav= 'menu_footer'
-                                include common/menu
-                                ul.b-icongrup.b-icongrup_maringtb.i-float_left
-                                    li.b-icongrup__item
-                                        a.b-icongrup__icon.b-icongrup__icon_opaciy(href="http://vk.com/evd1ser" target="_blank")
-                                            i.fa.fa-vk(aria-hidden="true")
-                                                span.sr-only vkontakte
-                                    li.b-icongrup__item
-                                        a.b-icongrup__icon.b-icongrup__icon_opaciy(href="https://github.com/evd1ser" target="_blank")
-                                            i.fa.fa-github-alt(aria-hidden="true")
-                                                span.sr-only github
-                                    li.b-icongrup__item
-                                        a.b-icongrup__icon.b-icongrup__icon_opaciy(href="https://www.linkedin.com/in/evd1ser" target="_blank")
-                                            i.fa.fa-linkedin(aria-hidden="true")
-                                                span.sr-only linkedin
-                            .col-pc-4.col-p-12.b-footer__blockquote
-                                .b-footer__bqtext Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.
-                                span.b-footer__who — Martin Golding
-                    .b-footer__small
-                        span.b-footer_line © Евдокимов Сергей
-                        span создано с любовью в LoftSchool | 2016
-                include common/_scripts
+                include _pagefooter
+    include common/_scripts

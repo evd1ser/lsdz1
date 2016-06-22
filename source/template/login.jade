@@ -1,0 +1,44 @@
+- var title= 'Мой Личный сайт'
+doctype html
+html
+  include common/_head
+  body
+   .b-content-head.b-content-head_bgmain
+    <!--[if lt IE 7]>
+    <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+    <![endif]-->
+
+    header.b-header.b-header_text-right.b-header_xs_text-center
+    main.b-main
+        .center_flex
+            .b-portfolio.b-portfolio_tema_forest
+                .b-portfolio__name.i-upper.i-under Авторизуйтесь
+                form#loginform.b-form-a
+                    .b-formgrup
+                        .b-formgrup__arial
+                            i.fa.fa-user.b-form-a__fa(aria-hidden="true")
+                        input.b-form-a__input(type="text" placeholder="Логин")
+                    .b-formgrup
+                        .b-formgrup__arial
+                            i.fa.fa-key.b-form-a__fa(aria-hidden="true")
+                        input.b-form-a__input(type="password" placeholder="Пароль")
+                    .b-formgrup
+                        input#checkbox.b-portfolio__checkbox(type="checkbox")
+                        label(for="checkbox") Я человеки
+                    span.b-formgrup__text
+                        |Вы точно не робот?
+                    .b-formgrup__radio-grup
+                        input#radio.b-portfolio__radio(type="radio" name="robots")
+                        label(for="radio") Да
+
+                        input#radio2.b-portfolio__radio(type="radio" name="robots")
+                        label(for="radio2") Не уверен
+                .b-menu
+                    a.b-menu__link(href="/") На главную
+                    a.b-menu__link(href="#") Войти
+
+    footer.b-footer
+       .b-footer__small
+            span.b-footer_line © Евдокимов Сергей
+            span Создано с любовью в LoftSchool | 2016
+    include common/_scripts

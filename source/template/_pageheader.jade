@@ -1,0 +1,39 @@
+.b-content-head.b-content-head_bgmain.b-content-head_nohome
+    <!--[if lt IE 7]>
+    <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
+    <![endif]-->
+
+    header.i-clear.b-header.b-header_text-right.i-abs-top
+        ul.b-icongrup.i-float_left
+            li.b-icongrup__item
+                a.b-icongrup__icon.b-icongrup__icon_opaciy(href="http://vk.com/evd1ser" target="_blank")
+                    i.fa.fa-vk(aria-hidden="true")
+                        span.sr-only vkontakte
+            li.b-icongrup__item
+                a.b-icongrup__icon.b-icongrup__icon_opaciy(href="https://github.com/evd1ser" target="_blank")
+                    i.fa.fa-github-alt(aria-hidden="true")
+                        span.sr-only github
+            li.b-icongrup__item
+                a.b-icongrup__icon.b-icongrup__icon_opaciy(href="https://www.linkedin.com/in/evd1ser" target="_blank")
+                    i.fa.fa-linkedin(aria-hidden="true")
+                        span.sr-only linkedin
+        a#menubtn.b-header__menu-btn.js-menu(href="#menu")
+            i.fa.fa-bars(aria-hidden="true")
+                span.sr-only Меню
+
+
+    .b-main
+        .center_flex
+            .b-portfolio.b-portfolio_tema_forest.b-portfolio_no-bg.b-portfolio_after
+                .b-imgcover
+                    img.b-imgcover__avatar(src="/assets/img/avatar.png")
+                case page
+                    when 'blog'
+                        h2.b-title-h2.b-title-h2_blog.i-upper.i-under Блог
+                        .b-blog_stitle Статьи, которые я написал
+                    default
+                        h1.b-portfolio__name Евдокимов Сергей
+                        span.b-portfolio__litteltext Личный сайт веб разработчика
+
+-var classesnav= 'b-nav b-nav_main b-nav_close', idnav= 'menu'
+include common/menu

@@ -1,0 +1,113 @@
+- var title= 'Обо мне'
+doctype html
+html
+    include common/_head
+    body
+        include _pageheader
+        .b-content-head.i-relat
+            svg.i-topskat(viewBox="0 0 100 100" preserveAspectRatio="none")
+                g
+                    polygon.i-topskat__item.i-topskat__item_right.i-topskat__item_right_about(points="50,100 100,0 100,100")
+                g
+                    polygon.i-topskat__item.i-topskat__item_left.i-topskat__item_left_about(points="0,0 0,100 50,100")
+            main.b-main.b-main_nopad.b-main-content.b-main_noflex
+                section.b-pabout.i-clear
+                    .b-pabout__story.col-hd-6.col-pc-6.col-p-12
+                        .col-xhd-6.col-p-12
+                            h2.b-title-h2.b-title-h2_about.i-text-center.i-upper.i-under.i-under_invers Обо мне
+                        .col-xhd-6.col-p-12
+                            .b-imgcover.b-imgcover_sqrt
+                                img.b-imgcover__avatar(src="/assets/img/avatar.png")
+                            h3.b-title-h3.b-title-h3_col_darcm3.i-under.i-under_col_darcm3.i-text-center Кто я
+                            p.b-pabout__text
+                                |Я веб разработчик из Москвы. Мне 20 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                                |Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                    .b-pabout__skill.b-skill.col-hd-6.col-pc-6.col-p-12
+                        .col-p-12
+                            h3.b-pabout__titlestat.b-title-h3.b-title-h3_col_darcm3.i-under.i-under_col_darcm3.i-text-center
+                                |Чем я могу быть
+                                |вам полезен
+                        .col-p-12
+                            p.b-pabout__text Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+                        .col-p-12
+                            h4.b-skill__title Frontend
+                            ul.b-diagram
+                                li.b-diagram__item.b-diagram__item_type1
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__html(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%") HTML5
+                                li.b-diagram__item.b-diagram__item_type1
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__css(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%") CSS3
+                                li.b-diagram__item.b-diagram__item_type1
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__js(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%")
+                                            tspan(x="55" y="50") JavaScript
+                                            tspan(x="55" y="65") & jQuery
+                        .col-p-12
+                            h4.b-skill__title Backend
+                            ul.b-diagram
+                                li.b-diagram__item.b-diagram__item_type2
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__fillcircle_type2.b-diagram__php(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%") PHP
+                                li.b-diagram__item.b-diagram__item_type2
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__fillcircle_type2.b-diagram__mySQL(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%") mySQL
+                                li.b-diagram__item.b-diagram__item_type2
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__fillcircle_type2.b-diagram__nodejs(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%")
+                                            tspan(x="55" y="50") Node.js
+                                            tspan(x="55" y="65") & npm
+                                li.b-diagram__item.b-diagram__item_type2
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__fillcircle_type2.b-diagram__mongo(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%") Mongo.db
+                        .col-p-12
+                            h4.b-skill__title WorkFlow
+                            ul.b-diagram
+                                li.b-diagram__item.b-diagram__item_type3
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__fillcircle_type3.b-diagram__git(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%") Git
+                                li.b-diagram__item.b-diagram__item_type3
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__fillcircle_type3.b-diagram__gulp(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%") Gulp
+                                li.b-diagram__item.b-diagram__item_type3
+                                    svg.b-diagram__svg(viewBox = "-5 -5 120 120")
+                                        circle.b-diagram__circle.b-diagram__nullcircle(r= "50" cx="55" cy="55")
+                                        circle.b-diagram__circle.b-diagram__fillcircle.b-diagram__fillcircle_type3.b-diagram__bower(r= "50" cx="55" cy="55" transform="rotate(-90, 55, 55)")
+                                        text.b-diagram__text(x="55" y="50%") Bower
+
+                .b-content-head.b-map
+                    #map.b-map__mymap
+                    .b-main.b-main_tema-map.i-clear
+                            .center_flex
+                                .b-portfolio.b-portfolio_tema_map
+                                    .b-portfolio__name.b-portfolio__name_col_darcm3.i-upper.i-under.i-under_col_darcm3 Контакты
+                                    ul.b-map__list
+                                        li.b-map__item
+                                            a.b-map__link.b-map__link_skype(href="skype:evd1ser" target="blank") evd1ser
+                                        li.b-map__item
+                                            a.b-map__link.b-map__link_email(href="mailto:evd1ser@gmail.com" target="blank") evd1ser@gmail.com
+                                        li.b-map__item
+                                            a.b-map__link.b-map__link_tel(href="tel:evd1ser@gmail.com" target="blank") +7 (999) 831-22-50
+                                        li.b-map__item
+                                            a.b-map__link.b-map__link_map(href="https://www.google.ru/maps/place/55%C2%B047'14.9%22N+37%C2%B041'00.2%22E/@55.787487,37.6812083,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d55.787484!4d37.683397" target="blank") Москва, ул 2-я Сокольническая
+
+                    include _pagefooter
+        include common/_scripts

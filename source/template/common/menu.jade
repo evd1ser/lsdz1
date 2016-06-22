@@ -1,12 +1,14 @@
 nav(id=idnav, class=classesnav)
     if idnav=='menu'
-        a.b-nav__close.js-menu(href="#") ЗАКРЫТЬ
+        a.b-nav__close.js-menu(href="#")
+            i.fa.fa-times(aria-hidden="true")
+                span.sr-only Закрыть
     ul.b-nav__list
         li.b-nav__item
-            a.b-nav__link.b-nav__link_activ(href="#") Мои работы
+            a.b-nav__link.b-nav__link_activ(href="/works.html") Мои работы
         li.b-nav__item
-            a.b-nav__link(href="#") Блог
+            a.b-nav__link(href="/blog.html") Блог
         li.b-nav__item
-            a.b-nav__link(href="#") Обо мне
+            a.b-nav__link(href="/aboutme.html") Обо мне
         li.b-nav__item
-            a.b-nav__link(href="#") Авторизация
+            a.b-nav__link(href="/login.html") Авторизация

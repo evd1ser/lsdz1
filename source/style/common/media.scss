@@ -34,6 +34,27 @@
   }
 }
 
+
+@mixin mfdesktop {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin mflaptop {
+  @media screen and (min-width: 769px) {
+    @content;
+  }
+}
+
+
+@mixin mftablets {
+  @media screen and (min-width: 481px) {
+    @content;
+  }
+}
+
+
 @for $i from 1 through 12 {
   .col-p-#{$i} {
     width: 100 * $i / 12 +%;
@@ -41,7 +62,7 @@
   }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 481px) {
   @for $i from 1 through 12 {
     .col-t-#{$i} {
       width: 100 * $i / 12 +%;
@@ -49,7 +70,7 @@
     }
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 769px) {
   @for $i from 1 through 12 {
     .col-pc-#{$i} {
       width: 100 * $i / 12 +%;
@@ -57,9 +78,17 @@
     }
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 993px) {
   @for $i from 1 through 12 {
     .col-hd-#{$i} {
+      width: 100 * $i / 12 + %;
+      float: left;
+    }
+  }
+}
+@media screen and (min-width: 1601px) {
+  @for $i from 1 through 12 {
+    .col-xhd-#{$i} {
       width: 100 * $i / 12 + %;
       float: left;
     }

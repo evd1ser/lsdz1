@@ -9,7 +9,7 @@ html
     <![endif]-->
 
     header.b-header.b-header_text-right.b-header_xs_text-center
-        a#login.b-header__login-btn(href="#login")Авторизоваться
+        a#login.b-header__login-btn.js-login(href="/login.html")Авторизоваться
     main.b-main
         .center_flex
             .b-portfolio.b-portfolio_tema_forest.b-portfolio_delay.b-portfolio_type_close
@@ -32,8 +32,8 @@ html
                           span.sr-only linkedin
                 .b-menu
                     a.b-menu__link(href="/works.html") Мои работы
-                    a.b-menu__link(href="#") Обо мне
-                    a.b-menu__link(href="#") Блог
+                    a.b-menu__link(href="/aboutme.html") Обо мне
+                    a.b-menu__link(href="/blog.html") Блог
             .b-portfolio.b-portfolio_tema_forest.b-portfolio_position_abs.b-portfolio_type_open
                 .b-portfolio__name.i-upper.i-under Авторизуйтесь
                 form#loginform.b-form-a
@@ -47,7 +47,7 @@ html
                         input.b-form-a__input(type="password" placeholder="Пароль")
                     .b-formgrup
                         input#checkbox.b-portfolio__checkbox(type="checkbox")
-                        label(for="checkbox") Я человеки им
+                        label(for="checkbox") Я человеки
                     span.b-formgrup__text
                         |Вы точно не робот?
                     .b-formgrup__radio-grup
@@ -57,11 +57,11 @@ html
                         input#radio2.b-portfolio__radio(type="radio" name="robots")
                         label(for="radio2") Не уверен
                 .b-menu
-                    a.b-menu__link(href="#") На главную
+                    a.b-menu__link.js-login(href="/") На главную
                     a.b-menu__link(href="#") Войти
 
     footer.b-footer
        .b-footer__small
             span.b-footer_line © Евдокимов Сергей
-            span создано с любовью в LoftSchool | 2016
+            span Создано с любовью в LoftSchool | 2016
     include common/_scripts

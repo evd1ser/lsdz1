@@ -1,12 +1,33 @@
+$light: #ffffff;
+$lightcolor2: #e0e0dc;
+$lightcolor3: #e1e4d7;
+$lightcolor4: #dfdcd5;
+$lightcolor5: #f0efe9;
+$lightcolor6: #c4cbcd;
+
 $maingamma: #4e8839;
 $maingamma2: #6c9c5a;
-$maingammadarck: #4e8839;
+$maingamma3: #566358;
+$maingammadarck: $maingamma;
+$colordarck2: #373e42;
+$bgcolor1: #ebefe2;
+$bgcolor2: #f4f5f0;
+$bgcolor3: #f8f9f5;
+
+$graycolor: #5d5a55;
+$graycolor2: #cccccc;
+@mixin transition($time: 1) {
+  transition: all $time + s;
+}
+
+
 body {
   margin: 0;
 }
 @import url('../fonts/Roboto/Roboto.css');
 @import url('../fonts/SansusWebissimo/SansusWebissimo.css');
 
+@import 'common/basehtml.scss';
 @import 'common/media.scss';
 @import 'common/_iclass.scss';
 @import 'common/greating.scss';
