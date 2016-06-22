@@ -1,8 +1,12 @@
-.b-content-head.b-content-head_bgmain.b-content-head_nohome
+- var classs = 'blog'
+if page== 'blog'
+    - var classs= ''
+else
+    - var classs= 'b-content-head_bgmain_portfolio'
+.b-content-head.b-content-head_bgmain.b-content-head_nohome(class="#{classs}")
     <!--[if lt IE 7]>
     <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
     <![endif]-->
-
     header.i-clear.b-header.b-header_text-right.i-abs-top
         ul.b-icongrup.i-float_left
             li.b-icongrup__item

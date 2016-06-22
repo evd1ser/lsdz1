@@ -37,6 +37,12 @@ body {
     background-size: cover;
     min-height: 100%;
     min-height: 100vh;
+    &_portfolio{
+        background-image: url('/assets/img/portfolio_header.png'), url('/assets/img/water.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 65% auto, cover;
+    }
 }
 
 .b-content-head_nohome {
@@ -65,7 +71,6 @@ body {
 }
 
 .b-header {
-    padding-top: rem(35px);
     background: linear-gradient( 0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.335));
 }
 
@@ -85,6 +90,7 @@ body {
     float: right;
     display: block;
     color: $light;
+    line-height: rem(80px);
     font-size: rem(35px);
     padding: 0 rem(30px);
     &:hover{
@@ -376,6 +382,7 @@ $b_portfolio_deley: 1s;
 .b-icongrup {
     margin: 0;
     padding: 0;
+    line-height: rem(80px);
 }
 
 .b-icongrup__item {
@@ -513,7 +520,7 @@ $b_portfolio_deley: 1s;
     color: white;
     font-size: rem(63px);
     font-weight: 400;
-    line-height: rem(56px);
+    line-height: 9.5rem;
 }
 
 .b-my-work {
