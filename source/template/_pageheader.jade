@@ -2,8 +2,8 @@
 if page== 'blog'
     - var classs= ''
 else
-    - var classs= 'b-content-head_bgmain_portfolio'
-.b-content-head.b-content-head_bgmain.b-content-head_nohome(class="#{classs}")
+    - var classs= 'b-main_portfolio'
+.b-content-head.b-content-head_bgmain.b-content-head_nohome
     <!--[if lt IE 7]>
     <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите его</a></p>
     <![endif]-->
@@ -26,7 +26,7 @@ else
                 span.sr-only Меню
 
 
-    .b-main
+    .b-main(class="#{classs}")
         .center_flex
             .b-portfolio.b-portfolio_tema_forest.b-portfolio_no-bg.b-portfolio_after
                 .b-imgcover

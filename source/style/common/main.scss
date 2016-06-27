@@ -33,16 +33,13 @@ body {
 }
 
 .b-content-head_bgmain {
-    background: url('/assets/img/water.jpg') no-repeat center;
+    background-image: url('/assets/img/water.jpg');
+    background-repeat:  no-repeat;
+    background-position: center;
     background-size: cover;
     min-height: 100%;
     min-height: 100vh;
-    &_portfolio{
-        background-image: url('/assets/img/portfolio_header.png'), url('/assets/img/water.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 65% auto, cover;
-    }
+
 }
 
 .b-content-head_nohome {
@@ -67,6 +64,12 @@ body {
     }
     &_tema-map{
         padding: rem(150px) rem(15px);
+    }
+    &_portfolio{
+        background-image: url('/assets/img/portfolio_header.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 65% auto;
     }
 }
 
@@ -615,6 +618,7 @@ $b_portfolio_deley: 1s;
         }
     }
     &__main {
+        position: relative;
         height: 70%;
         background-color: $lightcolor3;
         @include tablets {
@@ -657,9 +661,30 @@ $b_portfolio_deley: 1s;
         }
     }
     &__img {
+        position: absolute;
+        top: 0;
+        left:0;
+        right: 0;
         margin: auto;
         max-width: 100%;
         max-height: 100%;
+        &_t100{
+            top: -100%;
+        }
+    }
+    &_allimg{
+        opacity: 0;
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+    }
+    &__span{
+        opacity: 0;
+        &_op{
+            //transition: opacity .2s ease-in-out;
+            //opacity: 1;
+        }
     }
 }
 .b-about{
@@ -1316,4 +1341,30 @@ $svg: rem(110px);
             }
         }
     }
+}
+
+@keyframes zoomInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+        transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.55, .055, .675, .19);
+        animation-timing-function: cubic-bezier(0.55, .055, .675, .19)
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+        transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.175, .885, .32, 1);
+        animation-timing-function: cubic-bezier(0.175, .885, .32, 1)
+    }
+}
+.zoomInDown {
+    opacity: 1;
+    display: inline-block;
+    min-width: 0.2em;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-name: zoomInDown;
+    animation-name: zoomInDown
 }
