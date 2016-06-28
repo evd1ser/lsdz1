@@ -2,15 +2,16 @@
 .b-form-a__input{
   display: inline-block;
   position: relative;
-  height: 100%;
   height: rem(45px);
   opacity: 0.85;
   border-radius: 0 rem(22.5px) rem(22.5px) 0;
   border: none;
   padding-left: rem(20px);
   font-size: rem(16px);
+  color: transparentize($graycolor, 0.5);
   &:focus{
-        outline: none;
+      outline: none;
+      opacity: 1;
   }
 }
 
@@ -180,10 +181,13 @@ input[type='radio'] {
   color: transparentize($graycolor, 0.5);
   font-family: "Roboto";
   padding: rem(15px) rem(19px);
-  height: 1rem;
+  height: 8.75rem;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 6.188rem;
   border: none;
   resize: none;
+  &:focus{
+    outline: none;
+    opacity: 1;
+  }
 }
