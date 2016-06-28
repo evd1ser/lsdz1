@@ -263,7 +263,7 @@ body {
 
 /* Block portfolio */
 
-$b_portfolio_deley: 1s;
+$b_portfolio_deley: 0.6s;
 .b-portfolio {
     width: 100%;
     border-radius: 5px;
@@ -558,6 +558,7 @@ $b_portfolio_deley: 1s;
     color: $maingammadarck;
     &:after {
         content: ', ';
+        padding-right: 0.4em;
     }
     &:last-of-type {
         &:after {
@@ -610,19 +611,32 @@ $b_portfolio_deley: 1s;
         height: 30%;
     }
     &__item {
-        display: flex;
+        position: relative;
+        //display: flex;
         height: 100%;
         overflow: hidden;
-        @include tablets {
-            max-height: rem(650px);
+        &_big{
+            .b-slider__slid{
+                position: absolute;
+                top:0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0;
+                transition: all 0.6s;
+                &_active {
+                    opacity: 1;
+                }
+            }
         }
     }
+
     &__main {
         position: relative;
         height: 70%;
         background-color: $lightcolor3;
         @include tablets {
-            height: auto;
+            height: 40vh;
         };
 
     }
@@ -645,6 +659,7 @@ $b_portfolio_deley: 1s;
             left: 50%;
             transform: translate3d(-50%, -50%, 0);
             opacity: 1;
+            @include transition(0.5);
         }
         &:hover{
             background-color: rgba(147, 153, 141, 1);
@@ -654,14 +669,55 @@ $b_portfolio_deley: 1s;
         &:after{
             content: '\f107';
         }
+        &:hover{
+            &:after{
+                top: 70%
+            }
+        }
+        .b-slider__slid{
+            position: absolute;
+            display: flex;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            transform: translate3d(0, 100%, 0);
+            transition: all 3s;
+
+            animation: activeDown 0.6s;
+            &_active {
+                transform: translate3d(0, 0, 0);
+                animation: DowntoActiv 0.6s;
+            }
+        }
     }
     &__prev {
         &:after {
             content: '\f106';
         }
+        &:hover{
+            &:after{
+                top: 30%
+            }
+        }
+        .b-slider__slid{
+            position: absolute;
+            display: flex;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            transform: translate3d(0, 100%, 0);
+            transition: all 3s;
+
+            animation: UptoActiv 0.6s;
+            &_active {
+                transform: translate3d(0, 0, 0);
+                animation: activeUp 0.6s;
+            }
+        }
     }
     &__img {
-        position: absolute;
         top: 0;
         left:0;
         right: 0;
@@ -687,6 +743,44 @@ $b_portfolio_deley: 1s;
         }
     }
 }
+
+@keyframes activeUp {
+    0% {
+        transform: translate3d(0, 100%, 0); }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+@keyframes UptoActiv {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+@keyframes activeDown {
+    0% {
+        transform: translate3d(0, 0, 0); }
+    100% {
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+
+@keyframes DowntoActiv {
+    0% {
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
 .b-about{
     padding: {
         top: rem(70px);
@@ -785,56 +879,39 @@ $b_portfolio_deley: 1s;
     }
 
     &_main{
-        display: block;
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         min-height: 100%;
+        width: 100%;
+        overflow: hidden;
         /* Style for "Color Fill" */
         opacity: 0.87;
-        //background: $maingamma2;
-        background-image: linear-gradient( -90deg, $maingamma2, $maingamma2), linear-gradient( 90deg, $maingamma2, $maingamma2);
-        z-index: 100;
-        background-repeat: no-repeat;
-        animation: navbg 2s ease-in-out;
-        background-size: 100%, 50% 100%;
-        background-position: 0 0, 100% 0;
-
-    @keyframes navbg {
-        from {
-
-            background-size: 50% 100%;
-            background-position:
-            -100% 0%,
-        200% 0%;
-        }
-    to {
-        background-size: 50% 100%;
-        background-position:
-                    0% 0%,
-                    100% 0%;
-        }
-    }
-        .b-nav_close{
-            display: none;
-        }
-        .b-nav__close{
+        &:after,
+        &:before{
+            content:'';
+            position: absolute;
+            top: 0;
             display: block;
-            text-align: right;
-            color: $light;
-            margin: rem(30px) rem(30px) rem(120px);
-            font-size: rem(35px);
-            &:hover{
-                opacity: 0.8;
-            }
-            &:active{
-                opacity: 0.6;
-            }
+            background-color: transparentize($maingamma, 0.2);
+            width:50%;
+            min-height: 100vh;
+            height: 100%;
+            transition: transform, 2s;
+        }
 
+        &:before{
+            transform:translateX(-100%);
+            left: 0;
+        }
+
+        &:after{
+            transform:translateX(100%);
+            right: 0;
         }
         .b-nav__list{
-            display: block;
+            display: none;
             text-align: center;
             margin: auto;
             padding: 0;
@@ -869,9 +946,85 @@ $b_portfolio_deley: 1s;
                 margin: auto;
             }
         }
-    }
-    &_close{
-        display: none;
+        &_active{
+            position: absolute;
+            z-index: 9;
+
+            &:before{
+                transform:translateX(0)
+            }
+            &:after{
+                transform:translateX(0)
+            }
+            .b-nav {
+                &__list{
+                    margin: auto;
+                    position: relative;
+                    display: flex;
+                    align-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    z-index: 10;
+                    height: 100vh;
+                }
+                &__item{
+                    width: 100%;
+                    display: block;
+                    opacity: 0;
+                    -webkit-animation-name: rubberBand;
+                    animation-name: rubberBand;
+                    animation-duration: 1s;
+                    animation-fill-mode: both;
+                    &:nth-of-type(1) {
+                        animation-delay: 1s;
+                    }
+                    @for $i from 2 through 4 {
+                        &:nth-of-type(#{$i}) {
+                            animation-delay: 0.5 * ( 1 + $i ) + s;
+                        }
+                    }
+
+
+                    @keyframes rubberBand {
+                         from {
+                             transform: scale3d(1, 1, 1);
+                             opacity: 0;
+                         }
+
+                         30% {
+                             transform: scale3d(1.25, 0.75, 1);
+                             opacity: 1;
+                         }
+
+                         40% {
+                             transform: scale3d(0.75, 1.25, 1);
+                             opacity: 1;
+                         }
+
+                         50% {
+                             transform: scale3d(1.15, 0.85, 1);
+                             opacity: 1;
+                         }
+
+                         65% {
+                             transform: scale3d(.95, 1.05, 1);
+                             opacity: 1;
+                         }
+
+                         75% {
+                             transform: scale3d(1.05, .95, 1);
+                             opacity: 1;
+                         }
+
+                         to {
+                             transform: scale3d(1, 1, 1);
+                             opacity: 1;
+                         }
+                     }
+                }
+            }
+        }
+
     }
 
 
@@ -904,7 +1057,7 @@ $b_portfolio_deley: 1s;
     line-height: rem(26px);
     &__list{
         display: block;
-        margin: 0 rem(100px) 0 0;
+        //margin: 0 rem(100px) 0 0;
         padding: 0 rem(15px) 0 0;
         text-align: right;
     }
@@ -953,12 +1106,14 @@ $b_portfolio_deley: 1s;
         top: 50%;
         bottom: 50%;
         left: 0;
-        background: transparentize($maingamma2, 0.05);
-        height: 40px;
+        background: url("../img/swipe.svg");
+        background-size: cover;
         width: 15px;
-        border-radius: 0 40px 40px 0;
+        height: 65px;
+        //border-radius: 0 40px 40px 0;
         cursor: pointer;
         &__list{
+            margin: 0;
             display: none;
             left: 0;
         }
@@ -1089,7 +1244,7 @@ $b_portfolio_deley: 1s;
     position: relative;
     width: 100vw;
     max-width: 100%;
-    height: 80vh;
+    height: 100vh;
     &__mymap{
         position: absolute;
         top: 0;
@@ -1098,7 +1253,7 @@ $b_portfolio_deley: 1s;
         bottom: 0;
         width: 100vw;
         max-width: 100%;
-        height: 80vh;
+        height: 100vh;
     }
     &__list{
         padding: 0;
@@ -1367,4 +1522,28 @@ $svg: rem(110px);
     animation-fill-mode: both;
     -webkit-animation-name: zoomInDown;
     animation-name: zoomInDown
+}
+
+.svg-menu {
+    &__path {
+        stroke: #fff;
+        stroke-width: 6px;
+        stroke-linecap: round;
+        fill: transparent;
+        &_3 {
+        }
+    }
+    &:hover {
+        .svg-menu {
+            &__path {
+                &_1 {
+
+                }
+                &_2 {
+                }
+                &_3 {
+                }
+            }
+        }
+    }
 }

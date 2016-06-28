@@ -1,4 +1,5 @@
 - var title= 'Мои работы'
+- var page = 'works'
 doctype html
 html
   include common/_head
@@ -19,7 +20,18 @@ html
                 #sliderwork.i-h100
                     .b-slider.b-slider__main.col-p-12.col-hd-6.i-col_flr_moby
                         .b-slider__item.b-slider__item_big
-                            img.b-slider__img(src="/assets/img/file/site-1.png" data-title="НОВОСТНОЙ САЙТ ПО АНАЛОГИИ"  data-tag="HTML CSS JAVASCRIPT" data-link="#")
+                            .b-slider__slid.b-slider__slid_active
+                                img.b-slider__img(src="/assets/img/file/site-1.png" data-title="НОВОСТНОЙ САЙТ ПО АНАЛОГИИ"  data-tag='{"#p1": "photoshop 1", "#h1": "html 1", "#j1": "js 1"}' data-link="http://hardnews24.ru")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-2.png" data-title="Сайт вспорте 2" data-tag='{"#p2": "photoshop 2", "#h2": "html 2", "#j2": "js 2"}' data-link="http://gonkagto.ru")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-3.png" data-title="Сайт вспорте 3" data-tag='{"#p3": "photoshop 3", "#h3": "html 3", "#j3": "js 3"}' data-link="http://")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-4.png" data-title="Сайт вспорте 4" data-tag='{"#p4": "photoshop 4", "#h4": "html 4", "#j4": "js 4"}' data-link="#link4")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-5.png" data-title="Сайт вспорте 5" data-tag='{"#p5": "photoshop 5", "#h5": "html 5", "#j5": "js 5"}' data-link="#link5")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-6.png" data-title="Сайт вспорте 6" data-tag='{"#p6": "photoshop 6", "#h6": "html 6", "#j6": "js 6"}' data-link="#link6")
                     .b-my-work.col-p-12.col-hd-6.i-clear
                         .b-my-work__item.center_flex
                             h2#title.b-my-work__title.i-upper.i-under.i-under_invers Новостной сайт по аналогии
@@ -31,16 +43,34 @@ html
                                         a(href="#").b-tag-list__link css
                                     li.b-tag-list__item
                                         a(href="#").b-tag-list__link JavaScript
-                            a#link(href="#").b-my-work__link Посмотреть сайт
+                            a#link(href="http://hardnews24.ru").b-my-work__link Посмотреть сайт
                     .b-slider.b-slider_nav.col-p-12.col-hd-6
                         a.b-slider__item.b-slider__item_small.b-slider__next.col-p-6(href="#")
-                            img.b-slider__img(src="/assets/img/file/site-6.png" data-title="Сайт вспорте 6"  data-tag="photoshop" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-1.png" data-title="НОВОСТНОЙ САЙТ ПО АНАЛОГИИ"  data-tag="HTML CSS JAVASCRIPT" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-2.png" data-title="Сайт вспорте 2"  data-tag="photoshop 2" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-3.png" data-title="Сайт вспорте 3"  data-tag="photoshop 4" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-4.png" data-title="Сайт вспорте 4"  data-tag="photoshop 4" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-5.png" data-title="Сайт вспорте 5"  data-tag="photoshop 4" data-link="#")
+                            .b-slider__slid.b-slider__slid_active
+                                img.b-slider__img(src="/assets/img/file/site-6.png" data-title="Сайт вспорте 6"  data-tag="photoshop" data-link="#")
                         a.b-slider__item.b-slider__item_small.b-slider__prev.col-p-6(href="#")
-                            img.b-slider__img(src="/assets/img/file/site-2.png" data-title="Сайт вспорте 2"  data-tag="photoshop 2" data-link="#")
-                    .b-slider.b-slider_allimg
-                        img.b-slider__img(src="/assets/img/file/site-3.png" data-title="Сайт вспорте 3"  data-tag="photoshop 4" data-link="#")
-                        img.b-slider__img(src="/assets/img/file/site-4.png" data-title="Сайт вспорте 4"  data-tag="photoshop 4" data-link="#")
-                        img.b-slider__img(src="/assets/img/file/site-5.png" data-title="Сайт вспорте 5"  data-tag="photoshop 4" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-1.png" data-title="НОВОСТНОЙ САЙТ ПО АНАЛОГИИ"  data-tag="HTML CSS JAVASCRIPT" data-link="#")
+                            .b-slider__slid.b-slider__slid_active
+                                img.b-slider__img(src="/assets/img/file/site-2.png" data-title="Сайт вспорте 2"  data-tag="photoshop 2" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-3.png" data-title="Сайт вспорте 3"  data-tag="photoshop 4" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-4.png" data-title="Сайт вспорте 4"  data-tag="photoshop 4" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-5.png" data-title="Сайт вспорте 5"  data-tag="photoshop 4" data-link="#")
+                            .b-slider__slid
+                                img.b-slider__img(src="/assets/img/file/site-6.png" data-title="Сайт вспорте 6"  data-tag="photoshop" data-link="#")
             section.b-about.i-clear.i-text-center
                 h2.b-title-h2.b-title-h2_about.i-upper.i-under.i-under_invers
                     span.i-block Что обо мне

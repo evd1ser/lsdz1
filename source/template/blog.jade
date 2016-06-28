@@ -13,8 +13,9 @@ html
                 polygon.i-topskat__item.i-topskat__item_left(points="0,0 0,100 50,100")
         main.b-main.b-main_nopad.b-main-content.b-main_noflex.i-bgmain
             .container.i-clear
-                aside.col-pc-3.b-blog-asid.js-aside
-                    ul.b-blog-asid__list
+                #jspoint.col-pc-3
+                aside#jspointclick.col-pc-3.b-blog-asid
+                    ul.js-aside.b-blog-asid__list
                         li.b-blog-asid__item
                             a.b-blog-asid__link.b-blog-asid__link_activ(href="#post1") Как сделать резиновый треугольник в svg
                         li.b-blog-asid__item
@@ -95,7 +96,6 @@ html
                         p Ни для кого не секрет что в jquery есть множество эфектов по анимации, плюс обильные сторонние библиотеки, однако всегда встаёт вопрос, зачем нагружать машину пользователя вычисления связанными с js анимацией, когда можно создать её самому при помощи css а использовать при помощи js только для добавления классов анимации.
                         p Такой подход позволяет браузеру работать быстрее, а самое приятное что при этом анимация становится плавнее, что делает сайт по настоящему завораживающим!
 
-    script(src="/assets/js/jquery.touchSwipe.min.js")
     script(type="text/javascript").
         //<![CDATA[
         $(window).load(function(){

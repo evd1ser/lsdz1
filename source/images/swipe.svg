@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 65">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6c9c5a;
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" x="-51" y="0" width="66" height="65" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dx="3" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="1.732"/>
+      <feFlood result="flood" flood-opacity="0.2"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <circle id="swipe" class="cls-1" cx="-21" cy="32" r="30"/>
+</svg>

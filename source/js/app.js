@@ -5,16 +5,68 @@
         e.preventDefault();
         $('.b-portfolio').toggleClass('b-portfolio_delay').toggleClass('b-portfolio_animate');
     });
+    
+    var pathA = document.getElementById('pathA'),
+        pathC = document.getElementById('pathC'),
+        segmentA = new Segment(pathA, 8, 32),
+        segmentC = new Segment(pathC, 8, 32);
 
-    $('.js-menu').click(function(e) {
-        e.preventDefault();
-        $('#menu').toggleClass('b-nav_close');
+
+    function inAC(s) {
+        s.draw('80% - 24', '80%', 0.3, {delay: 0.1, callback: function(){
+            inAC2(s)
+        }});
+    }
+    function inAC2(s) {
+        s.draw('100% - 54.5', '100% - 30.5', 0.6, {easing: ease.ease('elastic-out', 1, 0.3)});
+    }
+
+
+// Initialize
+    var pathB = document.getElementById('pathB'),
+        segmentB = new Segment(pathB, 8, 32);
+
+// Expand the bar a bit
+    function inB(s) { s.draw(8 - 6, 32 + 6, 0.1, {callback: function(){ inB2(s) }}); }
+
+// Reduce with a bounce effect
+    function inB2(s) { s.draw(8 + 12, 32 - 12, 0.3, {easing: ease.ease('bounce-out', 1, 0.3)}); }
+
+// Run the animation
+    function outAC(s) { s.draw('90% - 24', '90%', 0.1, {easing: ease.ease('elastic-in', 1, 0.3), callback: function(){ outAC2(s) }}); }
+    function outAC2(s) { s.draw('20% - 24', '20%', 0.3, {callback: function(){ outAC3(s) }}); }
+    function outAC3(s) { s.draw(8, 32, 0.7, {easing: ease.ease('elastic-out', 1, 0.3)}); }
+
+    function outB(s) { s.draw(8, 32, 0.7, {delay: 0.1, easing: ease.ease('elastic-out', 2, 0.4)}); }
+
+// Run the animations
+    var trigger = document.getElementById('menu-icon-trigger'),
+        toCloseIcon = true;
+
+    $('.js-menu').click(function() {
+        if (toCloseIcon) {
+            inAC(segmentA);
+            inB(segmentB);
+            inAC(segmentC);
+        } else {
+            outAC(segmentA);
+            outB(segmentB);
+            outAC(segmentC);
+        }
+        toCloseIcon = !toCloseIcon;
+        $('.b-nav_main').toggleClass('b-nav_main_active')
+        $("html,body").toggleClass('i-overflow_hidden');
     });
-    $('.js-aside').click(function(e) {
+
+    $('.js-login').click(function(e) {
+        e.preventDefault();
+        $('.b-portfolio').toggleClass('b-portfolio_delay').toggleClass('b-portfolio_animate');
+    });
+
+    $('#jspointclick').click(function(e) {
         // event.stopPropagation();
         e.stopPropagation();
-        console.log(e);
-        $('.js-aside').toggleClass('b-blog-asid_openmpb');
+        $('#jspointclick').toggleClass('b-blog-asid_openmpb');
     });
 
     var paral = $(".b-content-head_nohome");
@@ -22,135 +74,147 @@
         var
             wScroll = $(window).scrollTop(),
             wHeigt = $(window).height(),
-            pos = 50 + 0.5*(wScroll*100)/wHeigt;
+            pos = 50 + 0.9*(wScroll*100)/wHeigt;
             $(paral).css({
                 'background-position-y': pos + '%',
                 'transition': "all 0.1s",
-                'background-size': "120%"
+                // 'background-size': "120%"
             });
 
 
     });
 
+    //** Menu blog **//
+    // var
+    //     pointas = $("#jspoint"),
+    //     hpointas = $("#jspoint").offset().top,
+    //     aside = $(".js-aside");
+    //     $(window).scroll(scrols);
+    //     $(window).resize(scrols);
+    //
+    // function scrols() {
+    //
+    //     var
+    //         aw = $("#jspoint").width(),
+    //         aofl = $("#jspoint").offset().left,
+    //         wScroll = $(window).scrollTop(),
+    //         win_w = $(window).width();
+    //     console.log(win_w);
+    //     if ((wScroll >= hpointas) & (win_w > 767) ) {
+    //
+    //         if (!aside.hasClass('i-fix')) {
+    //             console.log('win');
+    //             aside.addClass('i-fix').css({
+    //                 "top": 0,
+    //                 "left": aofl,
+    //                 "width": aw
+    //             });
+    //
+    //         } else {
+    //             aside.css({
+    //                 "top": 0,
+    //                 "left": aofl,
+    //                 "width": aw
+    //             });
+    //         }
+    //
+    //
+    //     } else {
+    //         aside.removeClass('i-fix').removeAttr("style");
+    //     }
+    //
+    //
+    //
+    // }
+    $(window).scroll(function () {
+        var wScroll = $(window).scrollTop();
+        $("section.b-blog-sec").each(function () {
+            if ( (wScroll >= $(this).offset().top) & (wScroll <= $(this).offset().top + $(this).height() )){
+                console.log($(this));
+            }
+        });
+
+    });
+
     //** SLIDER **//
     var
-        slider = $("#sliderwork"),
-        btnlnk = $(".b-slider__item_small"),
-        nextcover = $(".b-slider__next"),
-        prevcover = $(".b-slider__prev"),
-        imgconteiner = $(".b-slider_allimg"),
-        bigitem = $(".b-slider__item_big"),
-        timeanim = 1000;
-
-
-        var texttoslide = function (elem) {
-            var
-                title = $(elem).data("title"),
-                tag = $(elem).data("tag"),
-                link = $(elem).data("link"),
-                i = 0;
-            $("#title").html('');
-            $("#title").html(title);
-
-            $.fn.animate_Text = function() {
-                var string = this.text();
-                return this.each(function(){
-                    var $this = $(this);
-                    $this.html(string.replace(/./g, '<span class="b-slider__span">$&</span>'));
-                    $this.find('span.b-slider__span').each(function(i, el){
-                        setTimeout(function(){ $(el).addClass('b-slider__span_op zoomInDown'); }, 100 * i);
-                    });
-                });
-            };
-            $("#title").show();
-            $("#title").animate_Text();
-
-            // function animateText(id, text, i) {
-            //     document.getElementById(id).innerHTML = text.substring(0, i);
-            //     i++;
-            //     if (i > text.length) i = 0;
-            //     setTimeout("animateText('" + id + "','" + text + "'," + i + ")", 100);
-            // }
-            // animateText("title", "MyRusakov.ru - Как создать свой сайт", 0);
-        }
+        btnlnk = $(".b-slider__item");
 
         $(btnlnk).on("click", function (e) {
             e.preventDefault();
+            var link = $(this);
+            var
+                active = $(btnlnk).find(".b-slider__slid_active"),
+                next = "";
 
-                var link = $(this);
-                if ($(link).hasClass("b-slider__next")) {
-                    var slideUpTobig = $(link).find('.b-slider__img').first(),
-                        slideDownTosmall = $(bigitem).find($('.b-slider__img')).first(),
-                        slideSmallOut = $('#sliderwork .b-slider__prev .b-slider__img').first(),
-                        slideSmallIn = $(imgconteiner).find('.b-slider__img').last();
+            if ($(link).hasClass("b-slider__next")){
 
-                    texttoslide(slideUpTobig);
+                $(active).each(function () {
 
-                    slideDownTosmall.fadeOut(timeanim, function () {
-                        $(this).remove();
-                    }).clone().removeAttr("style").css({"top": "100%"}).appendTo(prevcover).animate({
-                        top: "0"
-                    }, timeanim, function() {
-                        //
-                    });
+                    if ( $(this).prev().length){
 
-                    slideUpTobig.animate({
-                        top: "100%"
-                    }, timeanim, function() {
-                        $(this).remove();
-                    }).clone().removeAttr("style").appendTo(bigitem).fadeOut(0).fadeIn(timeanim);
+                        next = $(next).add( $(this).prev() );
+                    } else {
+                        next = $(next).add( $(this).parent().children().last() );
+                    }
 
-                    slideSmallOut.animate({
-                        top: "-100%"
-                    }, timeanim, function() {
-                        $(this).remove();
-                    }).clone().removeAttr("style").prependTo(imgconteiner);
+                });
 
+            } else {
+                $(active).each(function () {
 
-                    slideSmallIn.css({"top": "-100%"}).appendTo(nextcover).animate({
-                        top: "0"
-                    }, timeanim, function() {
-                        //
-                    });
+                    if ( $(this).next().length){
 
-                } else {
-                    var slideUpTobig = $(link).find('.b-slider__img').first(),
-                        slideDownTosmall = $(bigitem).find($('.b-slider__img')).first(),
-                        slideSmallOut = $('#sliderwork .b-slider__next .b-slider__img').first(),
-                        slideSmallIn = $(imgconteiner).find('.b-slider__img').first();
-                    // slideUpTobig.siblings().remove();
-                    // slideDownTosmall.siblings().remove();
-                    // slideSmallOut.siblings().remove();
-                    texttoslide(slideUpTobig);
+                        next = $(next).add( $(this).next() );
+                    } else {
+                        next = $(next).add( $(this).parent().children().first() );
+                    }
 
+                });
+            }
+            $(active).removeClass('b-slider__slid_active');
 
-                    slideDownTosmall.fadeOut(timeanim, function () {
-                        $(this).remove();
-                    }).clone().removeAttr("style").css({"top": "-100%"}).appendTo(nextcover).animate({
-                        top: "0"
-                    }, timeanim, function() {
-                        //
-                    });
+            $(next).addClass("b-slider__slid_active");
 
-                    slideUpTobig.animate({
-                        top: "-100%"
-                    }, timeanim, function() {
-                        $(this).remove();
-                    }).clone().removeAttr("style").appendTo(bigitem).fadeOut(0).fadeIn(timeanim);
+            var bigActiv = $(".b-slider__item_big").find(".b-slider__slid_active .b-slider__img"),
+                newTitle = $(bigActiv).data('title'),
+                newTag = $(bigActiv).data('tag'),
+                newLink = $(bigActiv).data('link'),
+                tagstr = '',
+                j = 0;
 
-                    slideSmallOut.animate({
-                        top: "100%"
-                    }, timeanim, function() {
-                        $(this).remove();
-                    }).clone().removeAttr("style").appendTo(imgconteiner);
+            for(var key in newTag) {
+                tagstr += '<li class="b-tag-list__item"><a href="' + key + '" class="b-tag-list__link">' + animtext(newTag[key]) + '</a></li>';
+                console.log(tagstr);
+            };
+            j = 0;
+            $('#title').html(animtext(newTitle));
+            $('#tag').html(tagstr);
+            $('#link').attr('href', newLink);
 
 
-                    slideSmallIn.css({"top": "100%"}).appendTo(prevcover).animate({
-                        top: "0"
-                    }, timeanim, function() {
-                        //
-                    });
+
+            function animtext(str){
+                var text = "";
+
+                for(var i = 0; i < str.length; i++){
+                    if(i==0){
+                        text = "<span class='word'>";
+                    };
+
+                    text += "<span class='char' style='animation-delay: " + 0.05 * j + "s'>" + str[i] + "</span>";
+                    if(str[i] == " " || str[i] == "&nbsp;"){
+                        text += "</span><span class='letter'>&nbsp;</span><span class='word'>";
+                    }
+                    if(i == str.length-1) {
+                        text += "</span>";
+                    };
+                    j += 1;
                 }
+                return text;
+
+            }
+
 
         })
 

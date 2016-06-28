@@ -10,6 +10,7 @@ script(type = "text/javascript").
     var mapOptions = {
     // How zoomed in you want the map to start at (always required)
     zoom: 14,
+    scrollwheel: false,
 
     // The latitude and longitude to center the map (always required)
     center: new google.maps.LatLng(55.78580095546115, 37.67971631182753),
@@ -119,12 +120,8 @@ script(type = "text/javascript").
 
         // Let's also add a marker while we're at it
         var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(55.78580095546115, 37.67971631182753),
+        position: new google.maps.LatLng(55.787438, 37.683427),
         map: map,
-        title: 'Snazzy!'
+        title: 'Сергей Евдокимов!'
     });
     }
-
-
-script(type="text/javascript" src="/assets/js/shBrushJScript.js")
-script(type="text/javascript" src="/assets/js/shCore.js")

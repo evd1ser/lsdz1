@@ -22,8 +22,11 @@ else
                     i.fa.fa-linkedin(aria-hidden="true")
                         span.sr-only linkedin
         a#menubtn.b-header__menu-btn.js-menu(href="#menu")
-            i.fa.fa-bars(aria-hidden="true")
-                span.sr-only Меню
+            svg.svg-menu(width="100px" viewBox="0 0 100 100")
+
+                path#pathA.svg-menu__path.svg-menu__path_1(d="M 30 40 L 70 40 C 90 40 90 80 60 85 A 40 40 0 0 1 20 20 L 80 80")
+                path#pathB.svg-menu__path.svg-menu__path_2(d="M 30 50 L 70 50")
+                path#pathC.svg-menu__path.svg-menu__path_3(d="M 70 60 L 30 60 C 10 60 10 20 40 15 A 40 40 0 1 1 20 80 L 80 20")
 
 
     .b-main(class="#{classs}")
@@ -39,5 +42,5 @@ else
                         h1.b-portfolio__name Евдокимов Сергей
                         span.b-portfolio__litteltext Личный сайт веб разработчика
 
--var classesnav= 'b-nav b-nav_main b-nav_close', idnav= 'menu'
+-var classesnav= 'b-nav b-nav_main', idnav= 'menu'
 include common/menu
