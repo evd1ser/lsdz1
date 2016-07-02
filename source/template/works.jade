@@ -92,9 +92,10 @@ html
                             .b-about-me__name Зар Захаров
                             .b-about-me__who — главный преподаватель
 
-                    .center_flex
+                    .center_flex.blur
+                        img.blur__img(src="/assets/img/bg-about_1.png" alt="")
                         .b-portfolio.b-portfolio_tema_about
-                            h2.b-title-h3.b-title-h3_col_darcm3.b-portfolio__name.i-upper.i-under.i-under_col_darcm3 Связаться со мной
+                            h2.b-title-h3.b-title-h3_col_darcm3.b-portfolio__name.i-upper.i-under.i-under_col_darcm3.b-portfolio_tema_about__title Связаться со мной
                             form#loginform.b-form-a.b-form-about
                                 .b-formgrup
                                     input.b-form-a__input(type="text" placeholder="Имя")
@@ -112,3 +113,23 @@ html
 
                 include _pagefooter
     include common/_scripts
+    script.
+        $(document).ready(function () {
+            setBlur();
+        });
+
+        $(window).resize(function () {
+            setBlur();
+        });
+
+
+        function setBlur() {
+            var
+                blur = $('.blur'),
+                blurimg = $('.blur__img'),
+                html = $('html'),
+                bottomblur;
+
+            bottomblur = blur.offset().top + blur.height() - html.height();
+            blurimg.css({'bottom': bottomblur});
+        }

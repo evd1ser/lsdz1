@@ -3,26 +3,7 @@ doctype html
 html
     include common/_head
     body.i-overflow_hidden
-        .loader
-            svg.loader__svg(version='1.1',
-            xmlns='http://www.w3.org/2000/svg',
-            xmlns:xlink='http://www.w3.org/1999/xlink',
-            x='0px',
-            y='0px',
-            width='120px',
-            height='95.113px',
-            viewbox='0 0 80 95.113',
-            enable-background='new 0 0 80 95.113',
-            xml:space='preserve')
-              g
-                  path.loader__path.loader__path_1(fill='none', stroke='#231F20', stroke-width='3.9003', stroke-miterlimit='10', d='M0,38.005c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801c6.67,0,6.67,7.801,13.339,7.801S73.33,38.005,80,38.005')
-              g
-                  path.loader__path.loader__path_2(fill='none', stroke='#231F20', stroke-width='3.9003', stroke-miterlimit='10', d='M0,61.684c6.663,0,6.663,7.801,13.327,7.801c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801c6.67,0,6.67,7.801,13.339,7.801S73.33,61.684,80,61.684')
-              g
-                  path.loader__path.loader__path_3(fill='none', stroke='#231F20', stroke-width='3.9003', stroke-miterlimit='10', d='M0,85.362c6.663,0,6.663,7.801,13.327,7.801\
-                  c6.665,0,6.665-7.801,13.33-7.801c6.667,0,6.667,7.801,13.334,7.801c6.666,0,6.666-7.801,13.331-7.801\
-                  c6.67,0,6.67,7.801,13.339,7.801S73.33,85.362,80,85.362')
-              text.loader__text(transform='matrix(1 0 0 1 40 20)', font-family="'ArialMT'", font-size='24', text-anchor='middle') Загрузка...
+        include common/loader
 
     .b-content-head.b-content-head_bgmain
         <!--[if lt IE 7]>
@@ -33,7 +14,7 @@ html
             a#login.b-header__login-btn.js-login(href="/login.html")Авторизоваться
         main.b-main
             .center_flex
-                .b-portfolio.b-portfolio_tema_forest.b-portfolio_delay.b-portfolio_type_close
+                .b-portfolio.b-portfolio_tema_forest.b-portfolio_delay.b-portfolio_type_close.b-portfolio_flipJS
                     .b-imgcover
                         img.b-imgcover__avatar(src="/assets/img/avatar.png" alt='Евдокимов Сергей')
                     h1.b-portfolio__name Евдокимов Сергей
@@ -56,7 +37,7 @@ html
                         a.b-menu__link(href="/aboutme.html") Обо мне
                         a.b-menu__link(href="/blog.html") Блог
                 .b-portfolio.b-portfolio_tema_forest.b-portfolio_position_abs.b-portfolio_type_open
-                    .b-portfolio__name.i-upper.i-under Авторизуйтесь
+                    .b-portfolio__name.b-portfolio__name_big.i-upper.i-under Авторизуйтесь
                     form#loginform.b-form-a
                         .b-formgrup
                             .b-formgrup__arial
