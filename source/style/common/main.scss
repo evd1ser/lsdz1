@@ -81,10 +81,10 @@ body {
 }
 
 .b-content-head_bgmain {
-    background-image: url('/assets/img/water.jpg');
+    background-image: url('/assets/img/water_parallax.png');
     background-repeat:  no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: auto 130%;
     min-height: 100%;
     min-height: 100vh;
 
@@ -1636,6 +1636,7 @@ $svg: rem(110px);
 }
 
 .svg-menu {
+    width: 5rem;
     &__path {
         stroke: #fff;
         stroke-width: 6px;

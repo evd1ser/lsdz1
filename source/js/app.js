@@ -186,19 +186,19 @@
             $('#jspointclick').toggleClass('b-blog-asid_openmpb');
         });
 
-        var paral = $(".b-content-head_nohome");
-        $(window).scroll(function() {
-            var
-                wScroll = $(window).scrollTop(),
-                wHeigt = $(window).height(),
-                pos = 50 + 0.9*(wScroll*100)/wHeigt;
-                $(paral).css({
-                    'background-position-y': pos + '%',
-                    'transition': "all 0.1s",
-                    // 'background-size': "120%"
-                });
-
-
-        });
     };
+    var paral = $(".b-content-head_nohome");
+    $(window).scroll(function() {
+        var
+            wScroll = $(window).scrollTop(),
+            wHeigt = $(window).height(),
+            pos = 50 + 0.1*(wScroll*100)/wHeigt;
+        $(paral).css({
+            'background-position-y': pos + '%',
+            'transition': "all 0.1s",
+            // 'background-size': "120%"
+        });
+
+
+    });
 })();
