@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #6c9c5a;
+        fill: rgba(108, 156, 90, 0.95);
         filter: url(#filter);
       }
     </style>

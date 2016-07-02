@@ -27,9 +27,11 @@ body {
 @import url('../fonts/Roboto/Roboto.css');
 @import url('../fonts/SansusWebissimo/SansusWebissimo.css');
 
-@import 'common/basehtml.scss';
-@import 'common/media.scss';
-@import 'common/_iclass.scss';
-@import 'common/greating.scss';
-@import 'common/main.scss';
-@import 'common/leible.scss';
+@import 'blog/shCore';
+@import 'common/basehtml';
+@import 'common/media';
+@import 'common/_iclass';
+@import 'common/greating';
+@import 'common/main';
+@import 'common/leible';
+@import 'common/font-awesome';

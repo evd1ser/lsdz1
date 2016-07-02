@@ -1,11 +1,120 @@
 (function() {
     'use strict';
 
+
+    /*
+    preloader
+     */
+    var numimg = 0;
+    var qr;
+    var cssUrlRegex = /url\(\s*(['"]?)(.*?)\1\s*\)/g;
+    var images = new Array();
+    var cssImageProps = [
+        'background',
+        'backgroundImage',
+        'backgroundImage',
+        'borderImage',
+        'borderCornerImage',
+        'listStyleImage',
+        'cursor'
+    ];
+
+
+    function load(url) {
+        return new Promise(function (resolve, reject) {
+            var newimg = new Image();
+            newimg.src = url;
+            newimg.onload = function () {
+                resolve();
+            };
+            newimg.onerror = function () {
+                reject();
+            };
+        });
+    };
+    function getimg(url) {
+        load(url).then(
+            function () {
+                timer();
+            },
+            function () {
+                timer();
+            }
+        );
+    };
+    function repeatimg(url) {
+        if ($.inArray(url, images) == -1) {
+            getimg(url);
+            images.push(url);
+        };
+    };
+
+    $("*").each(function (i, e) {
+
+        if ($(e).is('img') && $(e).attr("src")) {
+            repeatimg($(e).attr("src"));
+        };
+
+        $.each(cssImageProps, function (i, property) {
+            var propertyValue = $(e).css(property);
+            var match;
+            if (!propertyValue) {
+                return true;
+            }
+
+            match = cssUrlRegex.exec(propertyValue);
+            if (match) {
+                repeatimg(match[2]);
+            }
+        });
+    });
+    function numAnimate(toNum,fromNum) {
+        clearInterval(qr);
+        qr = setInterval(function () {
+            fromNum++;
+            if (fromNum <= toNum) {
+                $('.loader__text').text(fromNum);
+            };
+        }, 1);
+    };
+    function timer(){
+        var persent;
+        numimg = numimg + 1;
+        persent = numimg * 70 / images.length;
+        persent = persent + 30;
+        persent = (persent-persent%1);
+        var fromNum = $('.loader__text').text();
+
+        if (numimg == 1 ){
+            fromNum = 0;
+        };
+        if (persent == 100 ){
+            clearInterval(qr);
+            $('.loader__text').text('100');
+            closepreloader();
+        } else {
+            numAnimate(persent,fromNum);
+        };
+    };
+    function closepreloader() {
+        $('.loader').delay(500).fadeOut();
+        $('body').removeClass('i-overflow_hidden');
+    };
+
+
+    /*
+    login
+     */
+
+
     $('.js-login').click(function(e) {
         e.preventDefault();
         $('.b-portfolio').toggleClass('b-portfolio_delay').toggleClass('b-portfolio_animate');
     });
-    
+
+    /*
+    menu svg
+     */
     var pathA = document.getElementById('pathA'),
         pathC = document.getElementById('pathC'),
         segmentA = new Segment(pathA, 8, 32),
@@ -43,6 +152,9 @@
     var trigger = document.getElementById('menu-icon-trigger'),
         toCloseIcon = true;
 
+    
+    
+    
     $('.js-menu').click(function() {
         if (toCloseIcon) {
             inAC(segmentA);
@@ -58,164 +170,27 @@
         $("html,body").toggleClass('i-overflow_hidden');
     });
 
-    $('.js-login').click(function(e) {
-        e.preventDefault();
-        $('.b-portfolio').toggleClass('b-portfolio_delay').toggleClass('b-portfolio_animate');
-    });
 
-    $('#jspointclick').click(function(e) {
-        // event.stopPropagation();
-        e.stopPropagation();
-        $('#jspointclick').toggleClass('b-blog-asid_openmpb');
-    });
-
-    var paral = $(".b-content-head_nohome");
-    $(window).scroll(function() {
-        var
-            wScroll = $(window).scrollTop(),
-            wHeigt = $(window).height(),
-            pos = 50 + 0.9*(wScroll*100)/wHeigt;
-            $(paral).css({
-                'background-position-y': pos + '%',
-                'transition': "all 0.1s",
-                // 'background-size': "120%"
-            });
-
-
-    });
-
-    //** Menu blog **//
-    // var
-    //     pointas = $("#jspoint"),
-    //     hpointas = $("#jspoint").offset().top,
-    //     aside = $(".js-aside");
-    //     $(window).scroll(scrols);
-    //     $(window).resize(scrols);
-    //
-    // function scrols() {
-    //
-    //     var
-    //         aw = $("#jspoint").width(),
-    //         aofl = $("#jspoint").offset().left,
-    //         wScroll = $(window).scrollTop(),
-    //         win_w = $(window).width();
-    //     console.log(win_w);
-    //     if ((wScroll >= hpointas) & (win_w > 767) ) {
-    //
-    //         if (!aside.hasClass('i-fix')) {
-    //             console.log('win');
-    //             aside.addClass('i-fix').css({
-    //                 "top": 0,
-    //                 "left": aofl,
-    //                 "width": aw
-    //             });
-    //
-    //         } else {
-    //             aside.css({
-    //                 "top": 0,
-    //                 "left": aofl,
-    //                 "width": aw
-    //             });
-    //         }
-    //
-    //
-    //     } else {
-    //         aside.removeClass('i-fix').removeAttr("style");
-    //     }
-    //
-    //
-    //
-    // }
-    $(window).scroll(function () {
-        var wScroll = $(window).scrollTop();
-        $("section.b-blog-sec").each(function () {
-            if ( (wScroll >= $(this).offset().top) & (wScroll <= $(this).offset().top + $(this).height() )){
-                console.log($(this));
-            }
+    if ($('#jspointclick')){
+        $('#jspointclick').click(function(e) {
+            // event.stopPropagation();
+            e.stopPropagation();
+            $('#jspointclick').toggleClass('b-blog-asid_openmpb');
         });
 
-    });
-
-    //** SLIDER **//
-    var
-        btnlnk = $(".b-slider__item");
-
-        $(btnlnk).on("click", function (e) {
-            e.preventDefault();
-            var link = $(this);
+        var paral = $(".b-content-head_nohome");
+        $(window).scroll(function() {
             var
-                active = $(btnlnk).find(".b-slider__slid_active"),
-                next = "";
-
-            if ($(link).hasClass("b-slider__next")){
-
-                $(active).each(function () {
-
-                    if ( $(this).prev().length){
-
-                        next = $(next).add( $(this).prev() );
-                    } else {
-                        next = $(next).add( $(this).parent().children().last() );
-                    }
-
+                wScroll = $(window).scrollTop(),
+                wHeigt = $(window).height(),
+                pos = 50 + 0.9*(wScroll*100)/wHeigt;
+                $(paral).css({
+                    'background-position-y': pos + '%',
+                    'transition': "all 0.1s",
+                    // 'background-size': "120%"
                 });
 
-            } else {
-                $(active).each(function () {
 
-                    if ( $(this).next().length){
-
-                        next = $(next).add( $(this).next() );
-                    } else {
-                        next = $(next).add( $(this).parent().children().first() );
-                    }
-
-                });
-            }
-            $(active).removeClass('b-slider__slid_active');
-
-            $(next).addClass("b-slider__slid_active");
-
-            var bigActiv = $(".b-slider__item_big").find(".b-slider__slid_active .b-slider__img"),
-                newTitle = $(bigActiv).data('title'),
-                newTag = $(bigActiv).data('tag'),
-                newLink = $(bigActiv).data('link'),
-                tagstr = '',
-                j = 0;
-
-            for(var key in newTag) {
-                tagstr += '<li class="b-tag-list__item"><a href="' + key + '" class="b-tag-list__link">' + animtext(newTag[key]) + '</a></li>';
-                console.log(tagstr);
-            };
-            j = 0;
-            $('#title').html(animtext(newTitle));
-            $('#tag').html(tagstr);
-            $('#link').attr('href', newLink);
-
-
-
-            function animtext(str){
-                var text = "";
-
-                for(var i = 0; i < str.length; i++){
-                    if(i==0){
-                        text = "<span class='word'>";
-                    };
-
-                    text += "<span class='char' style='animation-delay: " + 0.05 * j + "s'>" + str[i] + "</span>";
-                    if(str[i] == " " || str[i] == "&nbsp;"){
-                        text += "</span><span class='letter'>&nbsp;</span><span class='word'>";
-                    }
-                    if(i == str.length-1) {
-                        text += "</span>";
-                    };
-                    j += 1;
-                }
-                return text;
-
-            }
-
-
-        })
-
+        });
+    };
 })();

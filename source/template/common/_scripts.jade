@@ -1,127 +1,87 @@
-script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js")
+script.
+    (function() {
 
-script(type = "text/javascript").
-    // When the window has finished loading create our google map below
-    google.maps.event.addDomListener(window, 'load', init);
+    //** SLIDER **//
+    var
+    btnlnk = $(".b-slider__item");
 
-    function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-    var mapOptions = {
-    // How zoomed in you want the map to start at (always required)
-    zoom: 14,
-    scrollwheel: false,
+    $(btnlnk).on("click", function (e) {
+        e.preventDefault();
+        var link = $(this);
+        var
+        active = $(btnlnk).find(".b-slider__slid_active"),
+        next = "";
 
-    // The latitude and longitude to center the map (always required)
-    center: new google.maps.LatLng(55.78580095546115, 37.67971631182753),
+        if ($(link).hasClass("b-slider__next")) {
 
-    // How you would like to style the map.
-    // This is where you would paste any style found on Snazzy Maps.
-    styles: [
-        {
-            "featureType": "administrative",
-            "elementType": "labels.text.fill",
-            "stylers": [
-                {
-                    "color": "#444444"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#f2f2f2"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                },
-                {
-                    "color": "#566358"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "saturation": -100
-                },
-                {
-                    "lightness": 45
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "road.arterial",
-            "elementType": "labels.icon",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#6c9c5a"
-                },
-                {
-                    "visibility": "on"
-                }
-            ]
-        }
-    ]
-    };
+            $(active).each(function () {
 
-        // Get the HTML DOM element that will contain your map
-        // We are using a div with id="map" seen below in the <body>
-        var mapElement = document.getElementById('map');
+        if ($(this).prev().length) {
 
-        // Create the Google Map using our element and options defined above
-        var map = new google.maps.Map(mapElement, mapOptions);
+            next = $(next).add($(this).prev());
+    } else {
+    next = $(next).add($(this).parent().children().last());
+    }
 
-        // Let's also add a marker while we're at it
-        var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(55.787438, 37.683427),
-        map: map,
-        title: 'Сергей Евдокимов!'
+    });
+
+    } else {
+    $(active).each(function () {
+
+        if ($(this).next().length) {
+
+            next = $(next).add($(this).next());
+    } else {
+    next = $(next).add($(this).parent().children().first());
+    }
+
     });
     }
+    $(active).removeClass('b-slider__slid_active');
+
+    $(next).addClass("b-slider__slid_active");
+
+        var bigActiv = $(".b-slider__item_big").find(".b-slider__slid_active .b-slider__img"),
+        newTitle = $(bigActiv).attr('alt'),
+        newTag = $(bigActiv).data('tag'),
+        newLink = $(bigActiv).data('link'),
+        tagstr = '',
+        j = 0;
+
+        for (var key in newTag) {
+            tagstr += '<li class="b-tag-list__item"><a href="' + key + '" class="b-tag-list__link">' + animtext(newTag[key]) + '</a></li>';
+            console.log(tagstr);
+    }
+    ;
+    j = 0;
+    $('#title').html(animtext(newTitle));
+    $('#tag').html(tagstr);
+    $('#link').attr('href', newLink);
+
+
+        function animtext(str) {
+            var text = "";
+
+            for (var i = 0; i < str.length; i++) {
+                if (i == 0) {
+                    text = "<span class='word'>";
+                }
+                ;
+
+                text += "<span class='char' style='animation-delay: " + 0.05 * j + "s'>" + str[i] + "</span>";
+                if (str[i] == " " || str[i] == "&nbsp;") {
+                    text += "</span><span class='letter'>&nbsp;</span><span class='word'>";
+                }
+                if (i == str.length - 1) {
+                    text += "</span>";
+                }
+                ;
+                j += 1;
+        }
+            return text;
+
+    }
+
+
+    });
+    })();

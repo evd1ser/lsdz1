@@ -3,7 +3,7 @@
 doctype html
 html
   include common/_head
-  body
+  body.i-overflow_hidden
     include _pageheader
     .b-content-head.i-relat
         svg.i-topskat(viewBox="0 0 100 100" preserveAspectRatio="none")
@@ -35,7 +35,7 @@ html
                         p Прежде всего необходимо задать <code>viewBox = "0 0 100 100"</code> позле задаём: preserveAspectRatio="none", дабы пропорции при растягивании не соблюдались
                         p После рисуем два контура которые будут нашими правым и левым уголком.
                         p Заливку и оформление делаем по средствам css, таким не хитным способом можно сделать красивые резиновые треугольники для шапки этого сайта =)
-                        pre.
+                        pre(class='brush: js;').
                             &lt;svg viewBox="0 0 100 100" preserveAspectRatio="none" class="i-topskat">
                                  &lt;g>
                                     &lt;polygon points="50,100 100,0 100,100" class="i-topskat__item i-topskat__item_right"></polygon>
@@ -74,13 +74,13 @@ html
                         p Больше всего порадовало, что не надо писать кучу мусова в виде закрывающих скобок и лишних атрибутов, расслабьтесь и получайте удовольствие от своего дела, а шаблонизатор будет работать за вас.
                         p Jade очень похож на sass так же учитывается структура вложенности и очень много крутецких приемов в роде циклов, переменных и ещё много многого другого, сравните сами:
                         p Jade:
-                        pre.
+                        pre(class='brush: js;').
                             .super
                                 ul
                                     li
                                         a.link(href="#")jade
                         p HTML
-                        pre.
+                        pre(class='brush: js;').
                             &lt;div class="super">
                                 &lt;ul>
                                     &lt;li> &lt;a href="#" class="link">html&lt;/a>&lt;/li>
@@ -96,6 +96,12 @@ html
                         p Ни для кого не секрет что в jquery есть множество эфектов по анимации, плюс обильные сторонние библиотеки, однако всегда встаёт вопрос, зачем нагружать машину пользователя вычисления связанными с js анимацией, когда можно создать её самому при помощи css а использовать при помощи js только для добавления классов анимации.
                         p Такой подход позволяет браузеру работать быстрее, а самое приятное что при этом анимация становится плавнее, что делает сайт по настоящему завораживающим!
 
+
+    script(type="text/javascript" src="/assets/js/blog/shCore.js")
+    script(type="text/javascript" src="/assets/js/blog/shBrushJScript.js")
+    script(type="text/javascript").
+      SyntaxHighlighter.all();
+
     script(type="text/javascript").
         //<![CDATA[
         $(window).load(function(){
@@ -104,5 +110,72 @@ html
         $(toggle_el).toggleClass("open-sidebar");
         });
         });//]]>
+    script.
+        //** Menu blog **//
+        var
+            pointas = $("#jspoint"),
+            linkas = $('.b-blog-asid__link'),
+            aside = $(".js-aside");
+
+        $(window).scroll(scrols);
+        $(window).resize(scrols);
+
+        function scrols() {
+
+            var
+                hpointas = $(pointas).offset().top,
+                aw = $(pointas).width(),
+                aofl = $(pointas).offset().left,
+                wScroll = $(window).scrollTop(),
+                win_w = $(window).width();
+
+            if ((wScroll >= hpointas) & (win_w > 767) ) {
+
+                if (!aside.hasClass('i-fix')) {
+                    aside.addClass('i-fix').css({
+                    "top": 0,
+                    "left": aofl,
+                    "width": aw
+                    });
+
+                } else {
+                    aside.css({
+                    "top": 0,
+                    "left": aofl,
+                    "width": aw
+                    });
+                }
+
+
+            } else {
+                aside.removeClass('i-fix').removeAttr("style");
+            }
+        }
+
+        $(window).scroll(function () {
+            var wScroll = $(window).scrollTop(),
+                    whpersent = $(window).height()*60/100,
+                    tops = wScroll+whpersent;
+
+            $("section.b-blog-sec").each(function () {
+
+                if ( (tops >= $(this).offset().top) && (tops <= $(this).offset().top + $(this).height() )){
+                    $(linkas).removeClass('b-blog-asid__link_activ');
+                    $('[href="#' + $(this).attr("id") + '"]')
+                    .addClass('b-blog-asid__link_activ');
+            }
+            });
+
+        });
+        $(document).ready(function () {
+            $(linkas).on("click", function (e) {
+                e.preventDefault();
+                var id = $(this).attr('href'),
+                        top = $(id).offset().top,
+                        topoff = $(window).height()*10/100;
+                $('body,html').animate({scrollTop: top-topoff}, 800);
+            });
+        });
+
     include _pagefooter
     include common/_scripts
