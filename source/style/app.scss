@@ -16,6 +16,8 @@ $bgcolor3: #f8f9f5;
 
 $graycolor: #5d5a55;
 $graycolor2: #cccccc;
+$errcolor: #f00;
+$success: #0f0;
 @mixin transition($time: 1) {
   transition: all $time + s;
 }
@@ -24,7 +26,7 @@ $graycolor2: #cccccc;
 body {
   margin: 0;
 }
-@import url('../fonts/Roboto/Roboto.css');
+@import url('../fonts/roboto/Roboto.css');
 @import url('../fonts/SansusWebissimo/SansusWebissimo.css');
 
 @import 'blog/shCore';

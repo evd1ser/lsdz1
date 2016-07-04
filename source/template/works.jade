@@ -97,19 +97,20 @@ html
                         .b-portfolio.b-portfolio_tema_about
                             h2.b-title-h3.b-title-h3_col_darcm3.b-portfolio__name.i-upper.i-under.i-under_col_darcm3.b-portfolio_tema_about__title Связаться со мной
                             form#loginform.b-form-a.b-form-about
+                                #namegrup.b-formgrup
+                                    input.b-form-a__input(type="text" placeholder="Имя" required)
+                                #emailgrup.b-formgrup
+                                    input.b-form-a__input(type="email" placeholder="Email" required)
                                 .b-formgrup
-                                    input.b-form-a__input(type="text" placeholder="Имя")
-                                .b-formgrup
-                                    input.b-form-a__input(type="email" placeholder="Email")
-                                .b-formgrup
-                                    textarea.b-form-a__textarea(rows="5" placeholder="Ваше сообщение")
+                                    textarea#message.b-form-a__textarea(rows="5" placeholder="Ваше сообщение" required)
                                 .b-menu
-                                    button.b-menu__link(type='submit') Отправить
+                                    button.b-menu__link.js-submit_message(type='submit') Отправить
                                     button.b-menu__link(type='reset') Очистить
 
                 .b-top
-                    a.b-top__link(href="#")
+                    a.b-top__link.js-scrollto(href="#scrolltobtn")
                         i.fa.fa-chevron-up(aria-hidden="true")
+                        span.sr-only Наверх
 
                 include _pagefooter
     include common/_scripts

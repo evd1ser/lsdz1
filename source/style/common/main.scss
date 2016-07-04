@@ -433,20 +433,6 @@ $b_portfolio_deley: 0.6s;
     font-family: 'Roboto', sans-serif;;
 }
 
-.b-portfolio_after {
-    &:after {
-        font-family: fontawesome;
-        content: '\f078';
-        position: absolute;
-        top: 140%;
-        left: 0;
-        right: 0;
-        display: block;
-        text-align: center;
-        z-index: 10;
-    }
-}
-
 .b-imgcover {
     margin: 0 auto rem(20px);
     width: rem(141px);
@@ -517,6 +503,8 @@ $b_portfolio_deley: 0.6s;
 }
 
 .b-menu__link {
+    cursor: pointer;
+    outline: none;
     position: relative;
     color: $light;
     font-family: 'Roboto', sans-serif;;
@@ -700,6 +688,9 @@ $b_portfolio_deley: 0.6s;
 .b-slider {
     &_nav{
         height: 30%;
+        @include tablets {
+            max-height: rem(250px);
+        }
     }
     &__item {
         position: relative;
@@ -1133,7 +1124,29 @@ $b_portfolio_deley: 0.6s;
         color: $light;
         font-size: rem(24px);
         &:hover{
-            color: #f00;
+            opacity: 1;
+        }
+        &:active{
+            opacity: 0.85;
+        }
+    }
+}
+.b-bottom{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    text-align: center;
+    display: block;
+    padding: 4.375rem 0;
+
+    &__link{
+        opacity: 0.7;
+        color: $light;
+        font-size: rem(24px);
+        &:hover{
+            opacity: 1;
         }
         &:active{
             opacity: 0.85;

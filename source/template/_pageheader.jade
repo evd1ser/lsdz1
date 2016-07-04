@@ -17,15 +17,15 @@ include common/loader
             li.b-icongrup__item
                 a.b-icongrup__icon.b-icongrup__icon_opaciy(href="http://vk.com/evd1ser" target="_blank")
                     i.fa.fa-vk(aria-hidden="true")
-                        span.sr-only vkontakte
+                    span.sr-only vkontakte
             li.b-icongrup__item
                 a.b-icongrup__icon.b-icongrup__icon_opaciy(href="https://github.com/evd1ser" target="_blank")
                     i.fa.fa-github-alt(aria-hidden="true")
-                        span.sr-only github
+                    span.sr-only github
             li.b-icongrup__item
                 a.b-icongrup__icon.b-icongrup__icon_opaciy(href="https://www.linkedin.com/in/evd1ser" target="_blank")
                     i.fa.fa-linkedin(aria-hidden="true")
-                        span.sr-only linkedin
+                    span.sr-only linkedin
         a#menubtn.b-header__menu-btn.js-menu(href="#menu")
             svg.svg-menu(width="5rem" viewBox="0 0 100 100")
 
@@ -36,7 +36,7 @@ include common/loader
 
     .b-main(class="#{classs}")
         .center_flex
-            .b-portfolio.b-portfolio_tema_forest.b-portfolio_no-bg.b-portfolio_after
+            .b-portfolio.b-portfolio_tema_forest.b-portfolio_no-bg
                 .b-imgcover
                     img.b-imgcover__avatar(src="/assets/img/avatar.png")
                 case page
@@ -46,6 +46,12 @@ include common/loader
                     default
                         h1.b-portfolio__name Евдокимов Сергей
                         span.b-portfolio__litteltext Личный сайт веб разработчика
+        .b-bottom
+            a.b-bottom__link.js-scrollto(href="#scrolltobtn")
+                i.fa.fa-chevron-down(aria-hidden="true")
+                span.sr-only Смотри ниже ;)
 
 -var classesnav= 'b-nav b-nav_main', idnav= 'menu'
 include common/menu
+
+#scrolltobtn

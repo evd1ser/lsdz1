@@ -15,29 +15,29 @@ html
             .center_flex
                 .b-portfolio.b-portfolio_tema_forest.b-portfolio_flipJS
                     .b-portfolio__name.b-portfolio__name_big.i-upper.i-under Авторизуйтесь
-                    form#loginform.b-form-a
-                        .b-formgrup
+                    form#loginform.b-form-a(method="post")
+                        #logingrup.b-formgrup
                             .b-formgrup__arial
                                 i.fa.fa-user.b-form-a__fa(aria-hidden="true")
-                            input.b-form-a__input(type="text" placeholder="Логин")
-                        .b-formgrup
+                            input#login.b-form-a__input(type="text" placeholder="Логин" required)
+                        #passwordgrup.b-formgrup
                             .b-formgrup__arial
                                 i.fa.fa-key.b-form-a__fa(aria-hidden="true")
-                            input.b-form-a__input(type="password" placeholder="Пароль")
+                            input#password.b-form-a__input(type="password" placeholder="Пароль" required)
                         .b-formgrup
-                            input#checkbox.b-portfolio__checkbox(type="checkbox")
-                            label(for="checkbox") Я человеки
-                        span.b-formgrup__text
+                            input#human.b-portfolio__checkbox(type="checkbox" name="human" required)
+                            label(for="human") Я человеки
+                        span#robots.b-formgrup__text
                             |Вы точно не робот?
                         .b-formgrup__radio-grup
-                            input#radio.b-portfolio__radio(type="radio" name="robots")
-                            label(for="radio") Да
+                            input#yes.b-portfolio__radio(type="radio" name="robots" required)
+                            label(for="yes") Да
 
-                            input#radio2.b-portfolio__radio(type="radio" name="robots")
-                            label(for="radio2") Не уверен
+                            input#no.b-portfolio__radio(type="radio" name="robots")
+                            label(for="no") Не уверен
                     .b-menu
                         a.b-menu__link(href="/") На главную
-                        a.b-menu__link(href="#") Войти
+                        button.b-menu__link.js-submit(type="submit") Войти
 
         footer.b-footer
             .b-footer__small
