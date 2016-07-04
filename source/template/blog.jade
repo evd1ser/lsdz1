@@ -110,7 +110,8 @@ html
         $(toggle_el).toggleClass("open-sidebar");
         });
         });//]]>
-    script.
+    script(type="text/javascript").
+        (function() {
         //** Menu blog **//
         var
             pointas = $("#jspoint"),
@@ -128,7 +129,7 @@ html
                 aofl = $(pointas).offset().left,
                 wScroll = $(window).scrollTop(),
                 win_w = $(window).width();
-
+            
             if ((wScroll >= hpointas) & (win_w > 767) ) {
 
                 if (!aside.hasClass('i-fix')) {
@@ -176,6 +177,8 @@ html
                 $('body,html').animate({scrollTop: top-topoff}, 800);
             });
         });
+        })();
+
 
     include _pagefooter
     include common/_scripts
