@@ -409,6 +409,7 @@ $b_portfolio_deley: 0.6s;
     line-height: rem(34px);
     font-family: 'SansusWebissimo', sans-serif;;
     margin: 0;
+    margin-bottom: 0.2rem;
     &_big{
         font-size: 2.188rem;
         font-weight: 400;
@@ -434,7 +435,7 @@ $b_portfolio_deley: 0.6s;
 }
 
 .b-imgcover {
-    margin: 0 auto rem(20px);
+    margin: 0 auto 0.9rem;
     width: rem(141px);
     height: rem(141px);
     border-radius: 50%;
@@ -459,8 +460,8 @@ $b_portfolio_deley: 0.6s;
 
 .b-icongrup {
     margin: 0;
-    padding: 0;
-    line-height: rem(80px);
+    padding: rem(26px) 0;
+    margin-bottom: rem(13px);
 }
 
 .b-icongrup__item {
@@ -509,7 +510,7 @@ $b_portfolio_deley: 0.6s;
     color: $light;
     font-family: 'Roboto', sans-serif;;
     font-size: rem(16px);
-    line-height: rem(36px);
+    line-height: 3rem;
     font-weight: 500;
     background-color: transparentize($maingamma2, 0.2);
     display: block;
@@ -609,7 +610,7 @@ $b_portfolio_deley: 0.6s;
     background-color: $bgcolor1;
     @include laptop {
         height: auto;
-        display: block;
+        min-height: 30vh;
     }
 }
 
@@ -689,8 +690,8 @@ $b_portfolio_deley: 0.6s;
     &_nav{
         height: 30%;
         @include tablets {
-            max-height: rem(250px);
-        }
+            height: 30vh;
+        };
     }
     &__item {
         position: relative;
@@ -727,9 +728,6 @@ $b_portfolio_deley: 0.6s;
         background-color: rgba(176, 183, 170, 1);
         .b-slider__img {
             opacity: 0.3;
-        }
-        @include tablets {
-            max-height: rem(250px);
         }
         &:after{
             font-family: 'fontawesome';
@@ -1376,7 +1374,9 @@ $b_portfolio_deley: 0.6s;
         bottom: 0;
         width: 100vw;
         max-width: 100%;
-        height: 100vh;
+        @include phones{
+            margin-bottom: 13.875rem;
+        }
     }
     &__list{
         padding: 0;

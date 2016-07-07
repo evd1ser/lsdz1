@@ -1,3 +1,5 @@
+@import url('../fonts/roboto/Roboto.css');
+@import url('../fonts/SansusWebissimo/SansusWebissimo.css');
 $light: #ffffff;
 $lightcolor2: #e0e0dc;
 $lightcolor3: #e1e4d7;
@@ -26,8 +28,6 @@ $success: #0f0;
 body {
   margin: 0;
 }
-@import url('../fonts/roboto/Roboto.css');
-@import url('../fonts/SansusWebissimo/SansusWebissimo.css');
 
 @import 'blog/shCore';
 @import 'common/basehtml';

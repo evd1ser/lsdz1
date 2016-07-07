@@ -1,14 +1,15 @@
 $borderinput: 2px;
 .b-form-a {}
 .b-form-a__input{
+  width: 100%;
+  padding-left: 4rem;
   display: inline-block;
   position: relative;
   height: rem(45px);
   opacity: 0.85;
-  border-radius: 0 rem(22.5px) rem(22.5px) 0;
+  border-radius: rem(22.5px);
   border: $borderinput solid transparent;
   border-left: none;
-  padding-left: rem(20px);
   font-size: rem(16px);
   color: transparentize($graycolor, 0.5);
   &:focus{
@@ -24,6 +25,8 @@ $borderinput: 2px;
 
 
 .b-formgrup__arial {
+  position: absolute;
+  z-index: 1;
   display: inline-block;
   vertical-align: top;
   width: rem(45px);
@@ -38,7 +41,7 @@ $borderinput: 2px;
 .b-form-about{
   .b-form-a__input {
     width: 100%;
-    border-radius: rem(22.5px);
+    padding-left: rem(20px);
     border: $borderinput solid transparent;
   }
 }

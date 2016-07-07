@@ -1,184 +1,184 @@
 - var title= 'Мой блог'
 - var page = 'blog'
 doctype html
-html
-  include common/_head
-  body.i-overflow_hidden
-    include _pageheader
-    .b-content-head.i-relat
-        svg.i-topskat(viewBox="0 0 100 100" preserveAspectRatio="none")
-            g
-                polygon.i-topskat__item.i-topskat__item_right(points="50,100 100,0 100,100")
-            g
-                polygon.i-topskat__item.i-topskat__item_left(points="0,0 0,100 50,100")
-        main.b-main.b-main_nopad.b-main-content.b-main_noflex.i-bgmain
-            .container.i-clear
-                #jspoint.col-pc-3
-                aside#jspointclick.col-pc-3.b-blog-asid
-                    ul.js-aside.b-blog-asid__list
-                        li.b-blog-asid__item
-                            a.b-blog-asid__link.b-blog-asid__link_activ(href="#post1") Как сделать резиновый треугольник в svg
-                        li.b-blog-asid__item
-                            a.b-blog-asid__link(href="#post2") Стилизация чекбоксов и радиокнопок на чистом CSS
-                        li.b-blog-asid__item
-                            a.b-blog-asid__link(href="#post3") Разрешения экранов
-                        li.b-blog-asid__item
-                            a.b-blog-asid__link(href="#post4") Jade - это круто!
-                        li.b-blog-asid__item
-                            a.b-blog-asid__link(href="#post5") JS анимация или используем css
-                section#post1.col-p-12.col-pc-9.b-blog-sec
-                    header.b-blog-sec__header
-                        h2.b-blog-sec__title
-                            a.b-blog-sec__mainlink(href="#") Как сделать резиновый треугольник в svg
-                        time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
-                    main.b-blog-sec__text
-                        p Прежде всего необходимо задать <code>viewBox = "0 0 100 100"</code> позле задаём: preserveAspectRatio="none", дабы пропорции при растягивании не соблюдались
-                        p После рисуем два контура которые будут нашими правым и левым уголком.
-                        p Заливку и оформление делаем по средствам css, таким не хитным способом можно сделать красивые резиновые треугольники для шапки этого сайта =)
-                        pre(class='brush: js;').
-                            &lt;svg viewBox="0 0 100 100" preserveAspectRatio="none" class="i-topskat">
-                                 &lt;g>
-                                    &lt;polygon points="50,100 100,0 100,100" class="i-topskat__item i-topskat__item_right"></polygon>
-                                &lt;/g>
-                                &lt;g>
-                                    &lt;polygon points="0,0 0,100 50,100" class="i-topskat__item i-topskat__item_left"></polygon>
-                                &lt;/g>
-                            &lt;/svg>
+html(lang="ru-RU")
+    include common/_head
+    body.i-overflow_hidden
+        include _pageheader
+        .b-content-head.i-relat
+            svg.i-topskat(viewBox="0 0 100 100" preserveAspectRatio="none")
+                g
+                    polygon.i-topskat__item.i-topskat__item_right(points="50,100 100,0 100,100")
+                g
+                    polygon.i-topskat__item.i-topskat__item_left(points="0,0 0,100 50,100")
+            main.b-main.b-main_nopad.b-main-content.b-main_noflex.i-bgmain
+                .container.i-clear
+                    #jspoint.col-pc-3
+                    aside#jspointclick.col-pc-3.b-blog-asid
+                        ul.js-aside.b-blog-asid__list
+                            li.b-blog-asid__item
+                                a.b-blog-asid__link.b-blog-asid__link_activ(href="#post1") Как сделать резиновый треугольник в svg
+                            li.b-blog-asid__item
+                                a.b-blog-asid__link(href="#post2") Стилизация чекбоксов и радиокнопок на чистом CSS
+                            li.b-blog-asid__item
+                                a.b-blog-asid__link(href="#post3") Разрешения экранов
+                            li.b-blog-asid__item
+                                a.b-blog-asid__link(href="#post4") Jade - это круто!
+                            li.b-blog-asid__item
+                                a.b-blog-asid__link(href="#post5") JS анимация или используем css
+                    section#post1.col-p-12.col-pc-9.b-blog-sec
+                        header.b-blog-sec__header
+                            h2.b-blog-sec__title
+                                a.b-blog-sec__mainlink(href="#") Как сделать резиновый треугольник в svg
+                            time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
+                        .b-blog-sec__text
+                            p Прежде всего необходимо задать <code>viewBox = "0 0 100 100"</code> позле задаём: preserveAspectRatio="none", дабы пропорции при растягивании не соблюдались
+                            p После рисуем два контура которые будут нашими правым и левым уголком.
+                            p Заливку и оформление делаем по средствам css, таким не хитным способом можно сделать красивые резиновые треугольники для шапки этого сайта =)
+                            pre(class='brush: js;').
+                                &lt;svg viewBox="0 0 100 100" preserveAspectRatio="none" class="i-topskat">
+                                     &lt;g>
+                                        &lt;polygon points="50,100 100,0 100,100" class="i-topskat__item i-topskat__item_right">&lt;/polygon>
+                                    &lt;/g>
+                                    &lt;g>
+                                        &lt;polygon points="0,0 0,100 50,100" class="i-topskat__item i-topskat__item_left">&lt;/polygon>
+                                    &lt;/g>
+                                &lt;/svg>
 
-                section#post2.col-p-12.col-pc-9.b-blog-sec
-                    header.b-blog-sec__header
-                        h2.b-blog-sec__title
-                            a.b-blog-sec__mainlink(href="#") Стилизация чекбоксов и радиокнопок на чистом CSS
-                        time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
-                    main.b-blog-sec__text
-                        p Для того, чтобы оформить чекбоксы и радиокнопки, как того требует дизайн, сегодня не обязательно использовать JavaScript-решения (типа моего плагина jQuery Form Styler), т.к. для этого можно задействовать чистый CSS, причем с обратной совместимостью для старых браузеров (т.е. не в ущерб юзабилити), которые не поддерживают современные CSS-правила.
-                        p Фокус заключается в использовании псевдоселекторов :checked и :not. При этом сам чекбокс или радиокнопка делаются невидимыми, а их эмуляция осуществляется с помощью псевдоселекторов :before и :after для тега <label>, который, как мы знаем, переключает состояния элемента формы, если он привязан к нему через атрибут for.
-                        p источник: <a href="http://dimox.name/custom-checkboxes-and-radio-buttons-using-css-only/" target="_blank">dimox.name</a>
+                    section#post2.col-p-12.col-pc-9.b-blog-sec
+                        header.b-blog-sec__header
+                            h2.b-blog-sec__title
+                                a.b-blog-sec__mainlink(href="#") Стилизация чекбоксов и радиокнопок на чистом CSS
+                            time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
+                        .b-blog-sec__text
+                            p Для того, чтобы оформить чекбоксы и радиокнопки, как того требует дизайн, сегодня не обязательно использовать JavaScript-решения (типа моего плагина jQuery Form Styler), т.к. для этого можно задействовать чистый CSS, причем с обратной совместимостью для старых браузеров (т.е. не в ущерб юзабилити), которые не поддерживают современные CSS-правила.
+                            p Фокус заключается в использовании псевдоселекторов :checked и :not. При этом сам чекбокс или радиокнопка делаются невидимыми, а их эмуляция осуществляется с помощью псевдоселекторов :before и :after для тега &lt;label>, который, как мы знаем, переключает состояния элемента формы, если он привязан к нему через атрибут for.
+                            p источник: <a href="http://dimox.name/custom-checkboxes-and-radio-buttons-using-css-only/" target="_blank">dimox.name</a>
 
-                section#post3.col-p-12.col-pc-9.b-blog-sec
-                    header.b-blog-sec__header
-                        h2.b-blog-sec__title
-                            a.b-blog-sec__mainlink(href="#") Разрешения экранов
-                        time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
-                    main.b-blog-sec__text
-                        p Иногда бывает что срочно нужно написать крайне сложное правило для медиа запроса, а впадать в ступор не хочется, особенно когда дедлайн не за горами, в таких ситуациях всегда болжна быть спасательная ссылка которую можно открыть и быстро понять что к чему. Для меня долгое время таким спасательным якорем была страничка с самыми популярными медиа запросами: <a href="https://htmlweb.ru/css/media_screen.php" target="_blank">@media screen для мобильных устройств</a>
-                        p Однако теперь после поступления на курс продвинутой веб разработки у меня есть великолепнейшая методичка, где это не только написано но и разложено как надо!
+                    section#post3.col-p-12.col-pc-9.b-blog-sec
+                        header.b-blog-sec__header
+                            h2.b-blog-sec__title
+                                a.b-blog-sec__mainlink(href="#") Разрешения экранов
+                            time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
+                        .b-blog-sec__text
+                            p Иногда бывает что срочно нужно написать крайне сложное правило для медиа запроса, а впадать в ступор не хочется, особенно когда дедлайн не за горами, в таких ситуациях всегда болжна быть спасательная ссылка которую можно открыть и быстро понять что к чему. Для меня долгое время таким спасательным якорем была страничка с самыми популярными медиа запросами: <a href="https://htmlweb.ru/css/media_screen.php" target="_blank">@media screen для мобильных устройств</a>
+                            p Однако теперь после поступления на курс продвинутой веб разработки у меня есть великолепнейшая методичка, где это не только написано но и разложено как надо!
 
-                section#post4.col-p-12.col-pc-9.b-blog-sec
-                    header.b-blog-sec__header
-                        h2.b-blog-sec__title
-                            a.b-blog-sec__mainlink(href="#") Jade - это круто!
-                        time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
-                    main.b-blog-sec__text
-                        p Самым значимым за первые две недели обучения стало освоение супер удобного препроцессора - jade, ранее о существовании которого слышал, но руки не доходили попробовать.
-                        p Больше всего порадовало, что не надо писать кучу мусова в виде закрывающих скобок и лишних атрибутов, расслабьтесь и получайте удовольствие от своего дела, а шаблонизатор будет работать за вас.
-                        p Jade очень похож на sass так же учитывается структура вложенности и очень много крутецких приемов в роде циклов, переменных и ещё много многого другого, сравните сами:
-                        p Jade:
-                        pre(class='brush: js;').
-                            .super
-                                ul
-                                    li
-                                        a.link(href="#")jade
-                        p HTML
-                        pre(class='brush: js;').
-                            &lt;div class="super">
-                                &lt;ul>
-                                    &lt;li> &lt;a href="#" class="link">html&lt;/a>&lt;/li>
-                                &lt;/ul>
-                            &lt;/div>
-                        p В этом плане jade очень похож на emmit но всё таки удобнее
-                section#post5.col-p-12.col-pc-9.b-blog-sec
-                    header.b-blog-sec__header
-                        h2.b-blog-sec__title
-                            a.b-blog-sec__mainlink(href="#") JS анимация или используем css
-                        time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
-                    main.b-blog-sec__text
-                        p Ни для кого не секрет что в jquery есть множество эфектов по анимации, плюс обильные сторонние библиотеки, однако всегда встаёт вопрос, зачем нагружать машину пользователя вычисления связанными с js анимацией, когда можно создать её самому при помощи css а использовать при помощи js только для добавления классов анимации.
-                        p Такой подход позволяет браузеру работать быстрее, а самое приятное что при этом анимация становится плавнее, что делает сайт по настоящему завораживающим!
+                    section#post4.col-p-12.col-pc-9.b-blog-sec
+                        header.b-blog-sec__header
+                            h2.b-blog-sec__title
+                                a.b-blog-sec__mainlink(href="#") Jade - это круто!
+                            time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
+                        .b-blog-sec__text
+                            p Самым значимым за первые две недели обучения стало освоение супер удобного препроцессора - jade, ранее о существовании которого слышал, но руки не доходили попробовать.
+                            p Больше всего порадовало, что не надо писать кучу мусова в виде закрывающих скобок и лишних атрибутов, расслабьтесь и получайте удовольствие от своего дела, а шаблонизатор будет работать за вас.
+                            p Jade очень похож на sass так же учитывается структура вложенности и очень много крутецких приемов в роде циклов, переменных и ещё много многого другого, сравните сами:
+                            p Jade:
+                            pre(class='brush: js;').
+                                .super
+                                    ul
+                                        li
+                                            a.link(href="#")jade
+                            p HTML
+                            pre(class='brush: js;').
+                                &lt;div class="super">
+                                    &lt;ul>
+                                        &lt;li> &lt;a href="#" class="link">html&lt;/a>&lt;/li>
+                                    &lt;/ul>
+                                &lt;/div>
+                            p В этом плане jade очень похож на emmit но всё таки удобнее
+                    section#post5.col-p-12.col-pc-9.b-blog-sec
+                        header.b-blog-sec__header
+                            h2.b-blog-sec__title
+                                a.b-blog-sec__mainlink(href="#") JS анимация или используем css
+                            time.b-blog-sec__time(datetime="2016-06-19T13:13:19") 19 июня 2016
+                        .b-blog-sec__text
+                            p Ни для кого не секрет что в jquery есть множество эфектов по анимации, плюс обильные сторонние библиотеки, однако всегда встаёт вопрос, зачем нагружать машину пользователя вычисления связанными с js анимацией, когда можно создать её самому при помощи css а использовать при помощи js только для добавления классов анимации.
+                            p Такой подход позволяет браузеру работать быстрее, а самое приятное что при этом анимация становится плавнее, что делает сайт по настоящему завораживающим!
 
 
-    script(type="text/javascript" src="/assets/js/blog/shCore.js")
-    script(type="text/javascript" src="/assets/js/blog/shBrushJScript.js")
-    script(type="text/javascript").
-      SyntaxHighlighter.all();
+        script(type="text/javascript" src="/assets/js/blog/shCore.js")
+        script(type="text/javascript" src="/assets/js/blog/shBrushJScript.js")
+        script(type="text/javascript").
+          SyntaxHighlighter.all();
 
-    script(type="text/javascript").
-        //<![CDATA[
-        $(window).load(function(){
-        $("[data-toggle]").click(function() {
-        var toggle_el = $(this).data("toggle");
-        $(toggle_el).toggleClass("open-sidebar");
-        });
-        });//]]>
-    script(type="text/javascript").
-        (function() {
-        //** Menu blog **//
-        var
-            pointas = $("#jspoint"),
-            linkas = $('.b-blog-asid__link'),
-            aside = $(".js-aside");
-
-        $(window).scroll(scrols);
-        $(window).resize(scrols);
-
-        function scrols() {
-
+        script(type="text/javascript").
+            //<![CDATA[
+            $(window).load(function(){
+            $("[data-toggle]").click(function() {
+            var toggle_el = $(this).data("toggle");
+            $(toggle_el).toggleClass("open-sidebar");
+            });
+            });//]]>
+        script(type="text/javascript").
+            (function() {
+            //** Menu blog **//
             var
-                hpointas = $(pointas).offset().top,
-                aw = $(pointas).width(),
-                aofl = $(pointas).offset().left,
-                wScroll = $(window).scrollTop(),
-                win_w = $(window).width();
-            
-            if ((wScroll >= hpointas) & (win_w > 767) ) {
+                pointas = $("#jspoint"),
+                linkas = $('.b-blog-asid__link'),
+                aside = $(".js-aside");
 
-                if (!aside.hasClass('i-fix')) {
-                    aside.addClass('i-fix').css({
-                    "top": 0,
-                    "left": aofl,
-                    "width": aw
-                    });
+            $(window).scroll(scrols);
+            $(window).resize(scrols);
+
+            function scrols() {
+
+                var
+                    hpointas = $(pointas).offset().top,
+                    aw = $(pointas).width(),
+                    aofl = $(pointas).offset().left,
+                    wScroll = $(window).scrollTop(),
+                    win_w = $(window).width();
+
+                if ((wScroll >= hpointas) & (win_w > 767) ) {
+
+                    if (!aside.hasClass('i-fix')) {
+                        aside.addClass('i-fix').css({
+                        "top": 0,
+                        "left": aofl,
+                        "width": aw
+                        });
+
+                    } else {
+                        aside.css({
+                        "top": 0,
+                        "left": aofl,
+                        "width": aw
+                        });
+                    }
+
 
                 } else {
-                    aside.css({
-                    "top": 0,
-                    "left": aofl,
-                    "width": aw
-                    });
+                    aside.removeClass('i-fix').removeAttr("style");
                 }
-
-
-            } else {
-                aside.removeClass('i-fix').removeAttr("style");
             }
-        }
 
-        $(window).scroll(function () {
-            var wScroll = $(window).scrollTop(),
-                    whpersent = $(window).height()*60/100,
-                    tops = wScroll+whpersent;
+            $(window).scroll(function () {
+                var wScroll = $(window).scrollTop(),
+                        whpersent = $(window).height()*60/100,
+                        tops = wScroll+whpersent;
 
-            $("section.b-blog-sec").each(function () {
+                $("section.b-blog-sec").each(function () {
 
-                if ( (tops >= $(this).offset().top) && (tops <= $(this).offset().top + $(this).height() )){
-                    $(linkas).removeClass('b-blog-asid__link_activ');
-                    $('[href="#' + $(this).attr("id") + '"]')
-                    .addClass('b-blog-asid__link_activ');
-            }
+                    if ( (tops >= $(this).offset().top) && (tops <= $(this).offset().top + $(this).height() )){
+                        $(linkas).removeClass('b-blog-asid__link_activ');
+                        $('[href="#' + $(this).attr("id") + '"]')
+                        .addClass('b-blog-asid__link_activ');
+                }
+                });
+
             });
-
-        });
-        $(document).ready(function () {
-            $(linkas).on("click", function (e) {
-                e.preventDefault();
-                var id = $(this).attr('href'),
-                        top = $(id).offset().top,
-                        topoff = $(window).height()*10/100;
-                $('body,html').animate({scrollTop: top-topoff}, 800);
+            $(document).ready(function () {
+                $(linkas).on("click", function (e) {
+                    e.preventDefault();
+                    var id = $(this).attr('href'),
+                            top = $(id).offset().top,
+                            topoff = $(window).height()*10/100;
+                    $('body,html').animate({scrollTop: top-topoff}, 800);
+                });
             });
-        });
-        })();
+            })();
 
 
-    include _pagefooter
-    include common/_scripts
+        include _pagefooter
+        include common/_scripts
