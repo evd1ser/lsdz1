@@ -1,9 +1,9 @@
 .i-bgmain {
     background-color: $bgcolor3;
 }
-.container{
+.container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px;
     margin: auto;
 }
 .i-clear {
@@ -41,12 +41,22 @@
         background-color: $light;
         margin: 1.25rem auto 1.875rem;
     }
+    &_sm{
+        &:after {
+            margin-bottom: 1rem;
+        }
+    }
     &_marr {
         margin: rem(-30px) auto rem(30px);
     }
     &_invers {
         &:after {
         background-color: $colordarck2;
+        }
+    }
+    &_h22{
+        &:after {
+            margin: -1.75rem auto 1.875rem;
         }
     }
     &_darck {
