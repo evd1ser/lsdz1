@@ -208,8 +208,9 @@ body {
         color: $light;
         font-weight: 400;
         font-size: rem(15.77px);
-        line-height: rem(128px);
-        font-weight: 'Roboto';
+        padding-top: 4rem;
+        line-height: 4rem;
+        font-family: 'Roboto';
         @media screen and (max-width: 768px) {
             line-height: 1.5em;
             height: auto;
@@ -328,7 +329,7 @@ body {
     font-family: 'Roboto', sans-serif;;
     background: transparent;
     border: 1px solid $light;
-    padding: 0 2em;
+    padding: 0 2em 0 1.5rem;
     border-radius: rem(22.5px);
     text-decoration: none;
     @include transition;
@@ -543,7 +544,12 @@ $b_portfolio_deley: 0.6s;
         border: none;
     }
 }
-
+.b-menu_homep{
+    .b-menu__link{
+        width: auto;
+        flex: 1 1 auto;
+    }
+}
 
 .b-main-content {
     background: $bgcolor3;
@@ -1184,6 +1190,12 @@ $b_portfolio_deley: 0.6s;
     font-size: rem(16px);
     font-weight: 400;
     line-height: rem(26px);
+    padding-right: rem(15px);
+    padding-top: rem(5px);
+    &__point{
+        position: relative;
+        margin-left: rem(15px);
+    };
     &__list{
         display: block;
         padding: 0 rem(15px) 0 0;
@@ -1191,6 +1203,7 @@ $b_portfolio_deley: 0.6s;
     }
     &__item{
         list-style: none;
+        margin-bottom: 1rem;
     }
     &__link{
         color: $maingamma3;
@@ -1313,7 +1326,7 @@ $b_portfolio_deley: 0.6s;
     font-family: 'Roboto', sans-serif;;
     font-size: rem(16px);
     font-weight: 400;
-    padding: 0 rem(15px);
+    padding: 0 rem(15px) 0 rem(85px);
     &:after{
         content: '';
         display: block;
@@ -1330,9 +1343,12 @@ $b_portfolio_deley: 0.6s;
         }
     }
     &__header{
-        line-height: rem(41px);
     }
-    &__title{}
+    &__title{
+        margin: 0;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+    }
     &__mainlink{
         @include transition(3);
         font-family: 'SansusWebissimo', sans-serif;;

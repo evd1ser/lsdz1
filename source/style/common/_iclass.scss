@@ -5,6 +5,10 @@
     width: 100%;
     max-width: 800px;
     margin: auto;
+    &_blog{
+        padding-top: rem(44px);
+        max-width: 1100px;
+    }
 }
 .i-clear {
     &:before,
