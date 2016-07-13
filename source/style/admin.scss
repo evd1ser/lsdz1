@@ -1,0 +1,204 @@
+@import url('../fonts/roboto/Roboto.css');
+@import url('../fonts/SansusWebissimo/SansusWebissimo.css');
+
+@import 'common/media';
+
+
+$light: #ffffff;
+$lightcolor2: #e0e0dc;
+$lightcolor3: #e1e4d7;
+$lightcolor4: #dfdcd5;
+$lightcolor5: #f0efe9;
+$lightcolor6: #c4cbcd;
+
+$maingamma: #4e8839;
+$maingamma2: #6c9c5a;
+$maingamma3: #566358;
+$maingammadarck: $maingamma;
+$colordarck2: #373e42;
+$bgcolor1: #ebefe2;
+$bgcolor2: #f4f5f0;
+$bgcolor3: #f8f9f5;
+
+$graycolor: #5d5a55;
+$graycolor2: #cccccc;
+$errcolor: #f00;
+$success: #0f0;
+@mixin transition($time: 1) {
+  transition: all $time + s;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  @include laptop{
+    font-size: 14px;
+  }
+  @include tablets{
+    font-size: 13px;
+  }
+  @include phones{
+    font-size: 12px;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  min-height: 100%;
+  min-height: 100vh;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}
+.b-body{
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.85)), url('../img/water.jpg');
+  background-size: cover;
+  background-position: center bottom;
+}
+.b-header{
+  flex: 0 0 auto;
+  background: $maingamma;
+  padding: rem(1px) rem(30px);
+  &__title{
+    color: #fff;
+    font-family: Roboto;
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
+}
+.b-main{
+  flex: 1 0 auto;
+}
+.tabcontrol{
+  background-color: #fff;
+  &__list{
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  &__item{
+    list-style: none;
+    margin: 0 0 0 2px;
+    //flex: 300px 1 auto;
+    &:first-of-type{
+      margin: 0;
+    }
+  }
+  &__link{
+      color: $maingamma3;
+      display: block;
+      background-color: #f0efe9;
+      padding: rem(24px) 1rem;
+    text-decoration: none;
+    &:hover{
+      color: $maingamma2;
+    }
+    &_activ{
+      color: $maingamma;
+      background-color: #fff;
+    }
+  }
+}
+.tadcontainer{
+  position: relative;
+}
+
+.tab{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  padding: rem(50px) rem(30px);
+  &_activ{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__title{
+    flex: 1 1 100%;
+    color: #455a64;
+    font-family: Roboto;
+    font-size: 1.313rem;
+    font-weight: 500;
+    line-height: 2.125rem;
+    margin-bottom: rem(45px);
+  }
+  &__save{
+    flex: 1 1 100%;
+  }
+}
+
+.b-input{
+  &__title{
+    color: #455a64;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 2.125rem;
+    margin-bottom: 1rem;
+  }
+  &__line{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    margin-bottom: rem(10px);
+  }
+  &__input{
+    line-height: 2rem;
+    border: none;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    padding: 0 rem(15px);
+    color: #373e42;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.b-skill{
+  width: rem(200px);
+  margin: 0;
+  padding: 0 0 0 rem(20px);
+  &__item{
+    position: relative;
+    padding-right: 1rem;
+
+    &:after{
+      content: '%';
+      position: absolute;
+      right: 0;
+      top: 0;
+      line-height: 2rem;
+    }
+  }
+  &__title{
+    margin-bottom: 0;
+  }
+  &__input{
+    text-align: center;
+    width: 4rem;
+  }
+}
+.b-btnsave{
+  display: inline-block;
+  line-height: 2.813rem;
+  background-color: $maingamma;
+  border-radius: 0.313rem;
+  padding: 0 rem(20px);
+  color: $light;
+  text-decoration: none;
+  &:hover{
+    background: $maingamma2;
+    box-shadow: 1px 1px 10px 0px transparentize($maingamma, 0.3);
+  }
+}

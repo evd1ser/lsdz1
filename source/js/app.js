@@ -316,11 +316,26 @@
 
 
         if ($okey) {
-            console.log('Юхуууу, выполняем аякс запрос на сервер!')
+            var data = {
+                'name' : $namegrup.children('.b-form-a__input').val(),
+                'email' : $emailgrup.children('.b-form-a__input').val(),
+                'message': $message.val()
+            };
+            data = JSON.stringify(data);
+
+            $.ajax({
+                type: "POST",
+                url: "/mail.php",
+                data: {
+                    data: data
+                }
+            }).done(function(result) {
+                alert(result);
+            });
         } else {
-            console.log('увы, err')
-        }
-        var $okey = 1;
+        };
+        $okey = 1;
 
 
     });
+

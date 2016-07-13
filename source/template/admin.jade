@@ -1,0 +1,100 @@
+doctype html
+html(lang="ru-RU")
+    head
+        meta(charset='utf-8')
+        title Админпанель
+        meta(content='Evdokimov Sergey' name='author')
+        meta(content='Мой личный сайт' name='description')
+        meta(content='site, evd1ser, программист, разработчик, дизайнер' name='keywords')
+        meta(content='width=device-width, initial-scale=1' name='viewport')
+        meta(content='ie=edge' http-equiv='x-ua-compatible')
+        //- favicon block start
+        link(rel="icon" href="/assets/img/favicon.ico" type="image/x-icon")
+        link(rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon")
+        //- favicon block end
+        script(src='https://code.jquery.com/jquery-1.12.4.min.js' integrity='sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=' crossorigin='anonymous')
+        //- script(src='/assets/js/foundation.js' defer)
+        link(rel='stylesheet' href='/assets/css/foundation.css')
+        link(rel='stylesheet' href='/assets/css/admin.css')
+        script(src='/assets/js/admin.js' defer)
+        <!--[if lt IE 9]>
+        script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
+        <![endif]-->
+    body.b-body
+        header.b-header
+            h1.b-header__title Панель администрирования
+        main.b-main
+            section.tabcontrol
+                ul.tabcontrol__list
+                    li.tabcontrol__item
+                        a.js-tab.tabcontrol__link.tabcontrol__link_activ(href="#about") «Обо мне»
+                    li.tabcontrol__item
+                        a.js-tab.tabcontrol__link(href="#blog") «Блог»
+                    li.tabcontrol__item
+                        a.js-tab.tabcontrol__link(href="#work") «Мои работы»
+            .tadcontainer
+                section#about.tab.tab_activ
+                    h2.tab__title Страница «Обо мне»
+                    .b-input
+                        h3.b-input__title Frontend
+                        ul.b-skill
+                            li.b-skill__item.b-input__line
+                                .b-skill__title.b-input__title Html
+                                input.b-input__input.b-skill__input(value="100")
+                            li.b-skill__item.b-input__line
+                                .b-skill__title.b-input__title СSS
+                                input.b-input__input.b-skill__input(value="90")
+                            li.b-skill__item.b-input__line
+                                .b-skill__title.b-input__title JavaScript
+                                input.b-input__input.b-skill__input(value="80")
+                    .b-input.b-skill
+                        h3.b-input__title Backend
+                        ul.b-skill
+                            li.b-skill__item.b-input__line
+                                .b-skill__title.b-input__title PHP
+                                input.b-input__input.b-skill__input(value="80")
+                            li.b-skill__item.b-input__line
+                                .b-skill__title.b-input__title Node.js
+                                input.b-input__input.b-skill__input(value="30")
+                            li.b-skill__item.b-input__line
+                                .b-skill__title.b-input__title Mongo.db
+                                input.b-input__input.b-skill__input(value="40")
+                    .b-input.b-skill
+                        h3.b-input__title.b-skill__title Workflow
+                        .b-input__line
+                            .b-input__title Git
+                            input.b-input__input.b-skill__input(value="80")
+                        .b-input__line
+                            .b-input__title Gulp
+                            input.b-input__input.b-skill__input(value="90")
+                        .b-input__line
+                            .b-input__title Bower
+                            input.b-input__input.b-skill__input(value="80")
+                    .tab__save
+                        a.b-btnsave(href="#") Сохранить
+                section#blog.tab
+                    h2.tab__title Страница «Блог»
+                    .b-input.blognew
+                        .b-input__title Добавить запись
+                        .b-input__line
+                            input.b-input__input.blognew__input(placeholder="Название")
+                        .b-input__line
+                            input.b-input__input.blognew__input(placeholder="Дата" type="data")
+                        .b-input__line
+                            textarea.blognew__input.b-input__input(placeholder="Содержимое")
+                        a.b-btnsave Добавить
+                    .blog
+                        .blog__title
+                        .blog__data
+                        .blog__content
+                section#work.tab
+                    h2.tab__title Страница «Мои работы»
+                    .b-input
+                        .b-input__title Добавить работу
+                        .b-input__line
+                            input.b-input__input(placeholder="Название проекта")
+                        .b-input__line
+                            input.b-input__input(placeholder="Технологии")
+                        label
+                            input(type="file" name="file")
+                            span Выберите файл
