@@ -50,7 +50,6 @@
     };
 
     $("*").each(function (i, e) {
-
         if ($(e).is('img') && $(e).attr("src")) {
             repeatimg($(e).attr("src"));
         };
