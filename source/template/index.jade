@@ -11,7 +11,7 @@ html(lang="ru-RU")
             <![endif]-->
 
             header.b-header.b-header_pad.b-header_text-right.b-header_xs_text-center
-                a#login.b-header__login-btn.js-login(href="/login.html") Авторизоваться
+                a#loginbtn.b-header__login-btn.js-login(href="/login.html") Авторизоваться
             main.b-main
                 .center_flex
                     .b-portfolio.b-portfolio_tema_forest.b-portfolio_delay.b-portfolio_type_close.b-portfolio_flipJS
@@ -38,11 +38,11 @@ html(lang="ru-RU")
                             a.b-menu__link(href="/blog.html") Блог
                     .b-portfolio.b-portfolio_tema_forest.b-portfolio_position_abs.b-portfolio_type_open
                         .b-portfolio__name.b-portfolio__name_big.i-upper.i-under Авторизуйтесь
-                        form#flogin.b-form-a(method="post")
+                        form#loginform.b-form-a(method="post")
                             #logingrup.b-formgrup
                                 .b-formgrup__arial
                                     i.fa.fa-user.b-form-a__fa(aria-hidden="true")
-                                input#logininput.b-form-a__input(type="text" placeholder="Логин" required)
+                                input#login.b-form-a__input(type="text" placeholder="Логин" required)
                             #passwordgrup.b-formgrup
                                 .b-formgrup__arial
                                     i.fa.fa-key.b-form-a__fa(aria-hidden="true")

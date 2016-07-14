@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Moscow');
-require './PHPMailer/PHPMailerAutoload.php';
+require_once './PHPMailer/PHPMailerAutoload.php';
+require_once './function.php';
 $message = '';
 
 if ( isset ($_POST["data"]) ) {
@@ -46,13 +47,4 @@ function sender($subject, $message) {
     } else {
         echo 'Ваша заявка успешно получена';
     };
-};
-
-
-function clearall($str) {
-    $str = strip_tags($str);
-    $str = htmlspecialchars($str);
-    $str = stripslashes($str);
-    $str = addslashes($str);
-    return $str;
 };

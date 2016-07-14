@@ -264,7 +264,27 @@
         }
 
         if ($okey) {
-            console.log('Юхуууу, выполняем аякс запрос на сервер!')
+            var data = {
+                'login' : $login,
+                'password' : $password
+            };
+            data = JSON.stringify(data);
+
+            $.ajax({
+                type: "POST",
+                url: "/login.php",
+                data: {
+                    data: data
+                }
+            }).done(function(result) {
+                result = JSON.parse(result);
+                if (result['status'] == "okey"){
+                    window.location.replace(result['url']);
+                } else{
+                    $logingrup.addClass('b-formgrup_err');
+                    $passwordgrup.addClass('b-formgrup_err');
+                }
+            });
         } else {
             console.log('увы, err')
         }
