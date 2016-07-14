@@ -17,6 +17,12 @@ html(lang="ru-RU")
         link(rel='stylesheet' href='/assets/css/foundation.css')
         link(rel='stylesheet' href='/assets/css/admin.css')
         script(src='/assets/js/admin.js' defer)
+        script(src="//cdn.tinymce.com/4/tinymce.min.js" defer)
+        script.
+            $(document).ready(function () {
+                tinymce.init({ selector:'textarea' });
+            });
+
         <!--[if lt IE 9]>
         script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
         <![endif]-->
@@ -84,10 +90,26 @@ html(lang="ru-RU")
                         .b-input__line
                             textarea.blognew__input.b-input__input(placeholder="Содержимое")
                         a.b-btnsave Добавить
-                    .blog
-                        .blog__title sdfgh
-                        .blog__data sdfg
-                        .blog__content dfghj
+
+
+                    section#post1.blog
+                        header.blog__header
+                            h2.blog__title
+                                a.blog__mainlink(href="#") Как сделать резиновый треугольник в svg
+                            time.blog__time(datetime="2016-06-19T13:13:19") 19 июня 2016
+                        .blog__text
+                            p Прежде всего необходимо задать <code>viewBox = "0 0 100 100"</code> позле задаём: preserveAspectRatio="none", дабы пропорции при растягивании не соблюдались
+                            p После рисуем два контура которые будут нашими правым и левым уголком.
+                            p Заливку и оформление делаем по средствам css, таким не хитным способом можно сделать красивые резиновые треугольники для шапки этого сайта =)
+                            pre(class='brush: js;').
+                                &lt;svg viewBox="0 0 100 100" preserveAspectRatio="none" class="i-topskat">
+                                     &lt;g>
+                                        &lt;polygon points="50,100 100,0 100,100" class="i-topskat__item i-topskat__item_right">&lt;/polygon>
+                                    &lt;/g>
+                                    &lt;g>
+                                        &lt;polygon points="0,0 0,100 50,100" class="i-topskat__item i-topskat__item_left">&lt;/polygon>
+                                    &lt;/g>
+                                &lt;/svg>
                 section#work.tab
                     h2.tab__title Страница «Мои работы»
                     .b-input
