@@ -6,3 +6,4 @@ if (!$_SESSION['login'] == 'evd1ser'){
     exit;
 };
 echo $_SESSION['login'];
+?>

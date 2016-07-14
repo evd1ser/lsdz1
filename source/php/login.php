@@ -1,6 +1,7 @@
 <?php
 session_start();
-include_once './function.php';
+include_once './lib/config.php';
+include_once './lib/function.php';
 
 if ( isset ($_POST["data"]) ) {
     $json = $_POST["data"];
