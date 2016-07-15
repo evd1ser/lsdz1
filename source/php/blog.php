@@ -1,5 +1,6 @@
 <?php
 include_once('blog-f.php');
+//addpost('Привет мир', '2016-07-15', 'Это супер текст добавлен в базу из php <b>реально!</b>');
 ?><!DOCTYPE html>
 <html lang="ru-RU">
   <head>
@@ -90,6 +91,7 @@ include_once('blog-f.php');
             <ul class="js-aside b-blog-asid__list">
               <?php
                 $i = 0;
+                $myblogpost = get_blogposts();
                 foreach ($myblogpost as $value){
                   $blog_id = $value[blog_id];
                   $blog_title = $value[blog_title];
@@ -108,6 +110,7 @@ include_once('blog-f.php');
             </ul>
           </aside>
           <?php
+          $myblogpost = get_blogposts();
           foreach ($myblogpost as $value){
             $blog_id = $value[blog_id];
             $blog_title = $value[blog_title];
@@ -118,12 +121,10 @@ include_once('blog-f.php');
           <section id="post<?=$blog_id ?>" class="col-p-12 col-pc-9 b-blog-sec">
             <header class="b-blog-sec__header">
               <h2 class="b-blog-sec__title"><a href="/blog/<?=$blog_slug ?>" class="b-blog-sec__mainlink"><?=$blog_title ?></a></h2>
-              <time datetime="2016-06-19T13:13:19" class="b-blog-sec__time"><?=$blog_date ?></time>
+              <time datetime="<?=$blog_date ?>T10:00:00" class="b-blog-sec__time"><?=$blog_date ?></time>
             </header>
             <div class="b-blog-sec__text">
-              <p>
                 <?=$blog_text ?>
-              </p>
             </div>
           </section>
           <?php
