@@ -1,10 +1,56 @@
 script.
     (function() {
+        var j = 0;
+        function sliderinit() {
+            var $prev = $('.b-slider__prev').children().first().next().addClass('b-slider__slid_active'),
+                $next = $('.b-slider__next').children().last().addClass('b-slider__slid_active'),
+                $main = $('.b-slider__item_big').children().first();
+            $main.addClass('b-slider__slid_active');
+            addmain($main.children().first());
+        }
+        function animtext(str) {
+            var text = "";
+
+            for (var i = 0; i < str.length; i++) {
+                if (i == 0) {
+                    text = "<span class='word'>";
+                }
+                ;
+
+                text += "<span class='char' style='animation-delay: " + 0.05 * j + "s'>" + str[i] + "</span>";
+                if (str[i] == " " || str[i] == "&nbsp;") {
+                    text += "</span><span class='letter'>&nbsp;</span><span class='word'>";
+                }
+                if (i == str.length - 1) {
+                    text += "</span>";
+                }
+                ;
+                j += 1;
+        }
+            return text;
+
+        }
+        function addmain(bigActiv) {
+            var newTitle = $(bigActiv).attr('alt'),
+                newTag = $(bigActiv).data('tag'),
+                newLink = $(bigActiv).data('link');
+
+            j = 0;
+
+            console.log(newTag);
+            $('#title').html(animtext(newTitle));
+            $('#tag').html(animtext(newTag));
+            $('#link').attr('href', newLink);
+
+        }
+
 
     //** SLIDER **//
     var
     btnlnk = $(".b-slider__item");
-
+    if ($(btnlnk)) {
+        sliderinit();
+    }
     $(btnlnk).on("click", function (e) {
         e.preventDefault();
         var link = $(this);
@@ -41,45 +87,11 @@ script.
 
     $(next).addClass("b-slider__slid_active");
 
-        var bigActiv = $(".b-slider__item_big").find(".b-slider__slid_active .b-slider__img"),
-        newTitle = $(bigActiv).attr('alt'),
-        newTag = $(bigActiv).data('tag'),
-        newLink = $(bigActiv).data('link'),
-        tagstr = '',
-        j = 0;
+        var bigActiv = $(".b-slider__item_big").find(".b-slider__slid_active .b-slider__img");
 
-        for (var key in newTag) {
-            tagstr += '<li class="b-tag-list__item"><a href="' + key + '" class="b-tag-list__link">' + animtext(newTag[key]) + '</a></li>';
-    }
-    ;
-    j = 0;
-    $('#title').html(animtext(newTitle));
-    $('#tag').html(tagstr);
-    $('#link').attr('href', newLink);
+        addmain(bigActiv);
 
 
-        function animtext(str) {
-            var text = "";
-
-            for (var i = 0; i < str.length; i++) {
-                if (i == 0) {
-                    text = "<span class='word'>";
-                }
-                ;
-
-                text += "<span class='char' style='animation-delay: " + 0.05 * j + "s'>" + str[i] + "</span>";
-                if (str[i] == " " || str[i] == "&nbsp;") {
-                    text += "</span><span class='letter'>&nbsp;</span><span class='word'>";
-                }
-                if (i == str.length - 1) {
-                    text += "</span>";
-                }
-                ;
-                j += 1;
-        }
-            return text;
-
-    }
 
 
     });

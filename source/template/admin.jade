@@ -84,12 +84,12 @@ html(lang="ru-RU")
                     .b-input.blognew
                         .b-input__title Добавить запись
                         .b-input__line
-                            input.b-input__input.blognew__input(placeholder="Название")
+                            input#blogtitle.b-input__input.blognew__input(placeholder="Название")
                         .b-input__line
-                            input.b-input__input.blognew__input(type="date")
+                            input#blogdate.b-input__input.blognew__input(type="date")
                         .b-input__line
-                            textarea.blognew__input.b-input__input(placeholder="Содержимое")
-                        a.b-btnsave Добавить
+                            textarea#blogtext.blognew__input.b-input__input(placeholder="Содержимое")
+                        a#blogadd.b-btnsave Добавить
 
 
                     section#post1.blog
@@ -115,9 +115,12 @@ html(lang="ru-RU")
                     .b-input
                         .b-input__title Добавить работу
                         .b-input__line
-                            input.b-input__input(placeholder="Название проекта")
+                            input.b-input__input#worktitleadd(placeholder="Название проекта")
                         .b-input__line
-                            input.b-input__input(placeholder="Технологии")
+                            input.b-input__input#worktechnologiesadd(placeholder="Технологии")
+                        .b-input__line
+                            input.b-input__input#workurladd(placeholder="Ссылка")
                         label
-                            input(type="file" name="file")
+                            input#workfile(type="file" name="file")
                             span Выберите файл
+                        a#workload.b-btnsave Добавить

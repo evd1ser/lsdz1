@@ -1,6 +1,7 @@
 <?php
-include_once('blog-f.php');
-//addpost('Привет мир', '2016-07-15', 'Это супер текст добавлен в базу из php <b>реально!</b>');
+include_once('blog.class.php');
+    $blog = new Blog();
+    $myblogpost = $blog->get_blogposts();
 ?><!DOCTYPE html>
 <html lang="ru-RU">
   <head>
@@ -91,7 +92,6 @@ include_once('blog-f.php');
             <ul class="js-aside b-blog-asid__list">
               <?php
                 $i = 0;
-                $myblogpost = get_blogposts();
                 foreach ($myblogpost as $value){
                   $blog_id = $value[blog_id];
                   $blog_title = $value[blog_title];
@@ -110,7 +110,6 @@ include_once('blog-f.php');
             </ul>
           </aside>
           <?php
-          $myblogpost = get_blogposts();
           foreach ($myblogpost as $value){
             $blog_id = $value[blog_id];
             $blog_title = $value[blog_title];
@@ -320,7 +319,7 @@ include_once('blog-f.php');
                   }
                   ;
       
-                  text += "<span class='char' style='animation-delay: " + 0.05 * j + "s'>" + str[i] + "</span>";
+                  text += '<span class="char" style="animation-delay: "' + 0.05 * j + 's">' + str[i] + '</span>';
                   if (str[i] == " " || str[i] == "&nbsp;") {
                       text += "</span><span class='letter'>&nbsp;</span><span class='word'>";
                   }
