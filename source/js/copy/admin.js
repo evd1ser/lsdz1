@@ -33,13 +33,26 @@ $('#workload').click(function( event ){
         $link = $('#workurladd').val(),
         $okey = 1;
 
-
-    $okey = okey($title, $okey);
-    $okey = okey($technologies, $okey);
-    $okey = okey($link, $okey);
-    $okey = okey(files, $okey);
-
-
+    if (!$title){
+        $okey = $okey * 0;
+    } else {
+        $okey = $okey * 1;
+    }
+    if (!$technologies){
+        $okey = $okey * 0;
+    } else {
+        $okey = $okey * 1;
+    }
+    if (!$link){
+        $okey = $okey * 0;
+    } else {
+        $okey = $okey * 1;
+    }
+    if (!files){
+        $okey = $okey * 0;
+    } else {
+        $okey = $okey * 1;
+    }
     event.stopPropagation(); // Остановка происходящего
     event.preventDefault();  // Полная остановка происходящего
 
@@ -111,31 +124,37 @@ $('#blogadd').click(function ( event ) {
     var blogtitle = $('#blogtitle').val(),
         blogdate = $('#blogdate').val(),
         blogtext,
-        $okey = 1;
+        $okey;
+    if (!blogtitle){
+        $okey = $okey * 0;
+    } else {
+        $okey = $okey * 1;
+    }
 
-
-    $okey = okey(blogtitle, $okey);
-
-    $okey = okey(blogdate, $okey);
-
+    if (!blogdate){
+        $okey = $okey * 0;
+    } else {
+        $okey = $okey * 1;
+    }
 
     if (tinymce.activeEditor !== null) { // выход, если нет текущего активного редактора
         blogtext = tinyMCE.activeEditor.getContent();
     } else {
         blogtext = $('#blogtext').val();
     }
-
-
-    $okey = okey(blogtext, $okey);
-
+    if (!blogtext){
+        $okey = $okey * 0;
+    } else {
+        $okey = $okey * 1;
+    }
 
     if ($okey) {
         var data = {
+
             'title' : blogtitle,
             'blogdate' : blogdate,
             'blogtext' : blogtext
         };
-
         data = JSON.stringify(data);
 
         $.ajax({
@@ -149,73 +168,3 @@ $('#blogadd').click(function ( event ) {
         });
     }
 });
-
-
-$('#skilladd').click(function ( event ) {
-    event.stopPropagation(); // Остановка происходящего
-    event.preventDefault();  // Полная остановка происходящего
-    var html = $('#skill_html').val(),
-        css = $('#skill_css').val(),
-        js = $('#skill_js').val(),
-        php = $('#skill_php').val(),
-        mySQL = $('#skill_mySQL').val(),
-        Node = $('#skill_Node').val(),
-        Mong = $('#skill_Mong').val(),
-        Git = $('#skill_Git').val(),
-        Gulp = $('#skill_Gulp').val(),
-        Bower = $('#skill_Bower').val(),
-        $okey = 1;
-
-    $okey = okey(html, $okey);
-    $okey = okey(css, $okey);
-    $okey = okey(js, $okey);
-    $okey = okey(php, $okey);
-    $okey = okey(mySQL, $okey);
-    $okey = okey(Node, $okey);
-    $okey = okey(Mong, $okey);
-    $okey = okey(Git, $okey);
-    $okey = okey(Gulp, $okey);
-    $okey = okey(Bower, $okey);
-
-    if ($okey) {
-        var data = {
-            'Frontend': {
-                "HTML5": html,
-                "CSS3": css,
-                "JS": js
-            },
-            'Backend': {
-                'PHP': php,
-                'mySQL': mySQL,
-                'Node': Node,
-                'Mong': Mong
-            },
-            'WorkFlow'  : {
-                'Git': Git,
-                'Gulp': Gulp,
-                'Bower': Bower
-            }
-        };
-
-        data = JSON.stringify(data);
-
-        $.ajax({
-            type: "POST",
-            url: "/about.class.php?addskill",
-            data: {
-                data: data
-            }
-        }).done(function(result) {
-            alert(result);
-        });
-    }
-});
-
-function okey(el, $okey) {
-    if (el) {
-        $okey = $okey*1;
-    } else {
-        $okey = $okey*0;
-    }
-    return $okey;
-}
